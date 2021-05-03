@@ -27,7 +27,7 @@ class HomeController extends AbstractController
    * @Route("/home")
    */
   public function homepage(){
-    $message = "Hello fdp bis";
+    $message = "Hello fdp bis zebi";
     return $this->render('home/index.html.twig', [
       'number' => 16,
       'message' => $message
