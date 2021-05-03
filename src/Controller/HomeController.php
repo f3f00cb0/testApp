@@ -31,6 +31,6 @@ class HomeController extends AbstractController
     return $this->render('home/index.html.twig', [
       'number' => 16,
       'message' => $message
-    ])
+    ]);
   }
 }
