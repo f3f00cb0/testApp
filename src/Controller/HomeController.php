@@ -22,9 +22,12 @@ class HomeController extends AbstractController
       // find all files in the current directory
       $finder->files()->in(__DIR__);
 
-      var_dump($finder);
-      die;
-
+      foreach ($finder as $file) {
+        $absoluteFilePath = var_dump($file->getRealPath());
+        $fileNameWithExtension = $file->getRelativePathname();
+    
+        // ...
+    }
       return $this->render('home/index.html.twig', [
           'number' => $number,
           'message' => $message
