@@ -20,10 +20,17 @@ class HomeController extends AbstractController
 
       $directory = '/home/ubuntu/App/public';
       $scanned_directory = array_diff(scandir($directory), array('..', '.'));
+      $files = [];
+      $i = 0;
+      foreach ($scanned_directory as $temp_filename){
+        if(str_ends_with($temp_filename, '.mp3')){
+          $files[] = $temp_filename;
+        }
+      }
 
-      var_dump($scanned_directory);
-      die;
+      var_dump($files);
 
+      /*
       $finder = new Finder();
       // find all files in the current directory
       $finder->in('src/Controller/music');
@@ -33,7 +40,9 @@ class HomeController extends AbstractController
         $fileNameWithExtension = $file->getRelativePathname();
     
         // ...
-    }
+      }
+      */
+
       return $this->render('home/index.html.twig', [
           'number' => $number,
           'message' => $message
