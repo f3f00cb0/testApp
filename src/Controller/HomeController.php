@@ -18,6 +18,12 @@ class HomeController extends AbstractController
 
       $message = "Hello fdp";
 
+      $directory = '/home/ubuntu/App/public';
+      $scanned_directory = array_diff(scandir($directory), array('..', '.'));
+
+      var_dump($scanned_directory);
+      die;
+
       $finder = new Finder();
       // find all files in the current directory
       $finder->in('src/Controller/music');
