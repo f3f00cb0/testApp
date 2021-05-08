@@ -20,7 +20,7 @@ class HomeController extends AbstractController
 
       $finder = new Finder();
       // find all files in the current directory
-      $finder->in(__DIR__);
+      $finder->in(__DIR__)->in('music');
 
       foreach ($finder as $file) {
         $absoluteFilePath = var_dump($file->getRealPath());
