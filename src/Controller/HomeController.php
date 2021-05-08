@@ -20,7 +20,7 @@ class HomeController extends AbstractController
 
       $finder = new Finder();
       // find all files in the current directory
-      $finder->files()->in(__DIR__);
+      $finder->files()->in(__DIR__, '/public');
 
       foreach ($finder as $file) {
         $absoluteFilePath = var_dump($file->getRealPath());
