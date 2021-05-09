@@ -44,8 +44,9 @@ class HomeController extends AbstractController
       */
 
       return $this->render('home/index.html.twig', [
-          'number' => $number,
-          'message' => $message
+        'number' => $number,
+        'message' => $message,
+        'files' => $files
       ]);
   }
 
