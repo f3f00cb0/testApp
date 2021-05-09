@@ -71,10 +71,12 @@
             if (previousSong < 0) {
                 console.log(musics[HMSIP]);
                 source.src = musics[HMSIP];
+                audio.load();
                 audio.play();
             } else {
                 console.log(musics[previousSong]);
                 source.src = musics[previousSong];
+                audio.load();
                 audio.play();
             }
             console.log('backward');
@@ -84,9 +86,11 @@
             var nextSong = MPIP + 1;
             if (nextSong > HMSIP) {
                 source.src = musics[0];
+                audio.load();
                 audio.play();
             } else {
                 source.src = musics[nextSong];
+                audio.load();
                 audio.play();
             }
             console.log('forward');
