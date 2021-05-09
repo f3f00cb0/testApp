@@ -45,7 +45,7 @@
         var playpause = document.getElementById("play");
         var musics;
         {% for key in files %}
-            musics.push({{ key }});
+            musics.push('{{ key }}');
         {% endfor %}
         console.log(musics);
         function togglePlayPause() {
