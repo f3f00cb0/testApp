@@ -25,6 +25,10 @@
         {{ number }} | {{ message }}
     </section>
 
+    {% for key in files|keys %}
+        <li>{{ key }}</li>
+    {% endfor %}
+
 
     <audio preload="auto" id="audio" controls>
         <source src="JACKBOYS, Sheck Wes - GANG GANG.mp3">
