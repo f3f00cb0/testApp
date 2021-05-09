@@ -31,23 +31,28 @@
 
 
     <audio preload="auto" id="audio" controls>
-        <source src="JACKBOYS, Sheck Wes - GANG GANG.mp3">
+        <source id="audiosource" src="JACKBOYS, Sheck Wes - GANG GANG.mp3">
 	</audio>
 	<table class="player">
-		<td><input type="checkbox" id="backward"/><label class="backward" for="backward"></label></td>
+		<td><input type="checkbox" id="backward" onclick="backward()"/><label class="backward" for="backward"></label></td>
 		<td><input type="checkbox" id="play" title="Play" onclick="togglePlayPause()"/><label class="play" for="play"></label></td>
-		<td><input type="checkbox" id="forward"/><label class="forward" for="forward"></label></td>
+		<td><input type="checkbox" id="forward" onclick="forward()"/><label class="forward" for="forward"></label></td>
 	</table>
 	
 	
     <script>
-        var audio = document.getElementById('audio');
-        var playpause = document.getElementById("play");
         var musics = [];
         {% for key in files %}
             musics.push('{{ key }}');
         {% endfor %}
         console.log(musics);
+        console.log(musics.length);
+        var HMSIP = musics.length;
+        var audio = document.getElementById('audio');
+        var playpause = document.getElementById("play");
+        var source = document.getElementById('audiosource');
+        source.src = musics[3];
+        
         function togglePlayPause() {
            if (audio.paused || audio.ended) {
               playpause.title = "Pause";
@@ -57,6 +62,16 @@
               audio.pause();
            }
         }
+
+        function backward(){
+            console.log('backward');
+        }
+
+        function forward(){
+            console.log('forward');
+        }
+
+        var actualyPlaying 
     </script>
 </body>
 </html>
