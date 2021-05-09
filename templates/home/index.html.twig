@@ -44,8 +44,8 @@
         var audio = document.getElementById('audio');
         var playpause = document.getElementById("play");
         var musics;
-        {% for file in files %}
-            musics.push(file);
+        {% for key in files %}
+            musics.push(key);
         {% endfor %}
         console.log(musics);
         function togglePlayPause() {
