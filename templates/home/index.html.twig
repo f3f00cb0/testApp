@@ -69,9 +69,11 @@
         function backward(){
             var previousSong = MPIP - 1;
             if (previousSong < 0) {
-                 source.src = musics[HMSIP];
-                 audio.play();
+                console.log(musics[HMSIP]);
+                source.src = musics[HMSIP];
+                audio.play();
             } else {
+                console.log(musics[previousSong]);
                 source.src = musics[previousSong];
                 audio.play();
             }
