@@ -37,6 +37,7 @@
 		<td><input type="checkbox" id="backward" onclick="backward()"/><label class="backward" for="backward"></label></td>
 		<td><input type="checkbox" id="play" title="Play" onclick="togglePlayPause()"/><label class="play" for="play"></label></td>
 		<td><input type="checkbox" id="forward" onclick="forward()"/><label class="forward" for="forward"></label></td>
+        <input type="range" id="volume-control">
 	</table>
 	
 	
@@ -55,6 +56,12 @@
         // Music Playing In Playlist
         var MPIP = 3;
         source.src = musics[MPIP];
+
+
+        let volume = document.querySelector("#volume-control");
+        volume.addEventListener("change", function(e) {
+            audio.volume = e.currentTarget.value / 100;
+        })
         
         function togglePlayPause() {
            if (audio.paused || audio.ended) {
