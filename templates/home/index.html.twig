@@ -46,13 +46,15 @@
             musics.push('{{ key }}');
         {% endfor %}
         console.log(musics);
-        console.log(musics.length);
-        var HMSIP = musics.length;
+        // How Many Songs In Playlist
+        var HMSIP = musics.length - 1;
         console.log(HMSIP);
         var audio = document.getElementById('audio');
         var playpause = document.getElementById("play");
         var source = document.getElementById('audiosource');
-        source.src = musics[3];
+        // Music Playing In Playlist
+        var MPIP = 3;
+        source.src = musics[MPIP];
         
         function togglePlayPause() {
            if (audio.paused || audio.ended) {
@@ -65,10 +67,26 @@
         }
 
         function backward(){
+            var previousSong = MPIP - 1;
+            if (previousSong < 0) {
+                 source.src = musics[HMSIP];
+                 audio.play();
+            } else {
+                source.src = musics[previousSong];
+                audio.play();
+            }
             console.log('backward');
         }
 
         function forward(){
+            var nextSong = MPIP + 1;
+            if (nextSong > HMSIP) {
+                source.src = musics[0];
+                audio.play();
+            } else {
+                source.src = musics[nextSong];
+                audio.play();
+            }
             console.log('forward');
         }
 
