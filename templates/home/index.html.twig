@@ -25,6 +25,7 @@
         {{ number }} | {{ message }}
     </section>
 
+
     <audio preload="auto" id="audio" controls>
         <source src="JACKBOYS, Sheck Wes - GANG GANG.mp3">
 	</audio>
@@ -34,12 +35,21 @@
 		<td><input type="checkbox" id="forward"/><label class="forward" for="forward"></label></td>
 	</table>
 	
-	<table class="footer">
-		<td><input type="checkbox" id="love" checked /><label class="love" for="love"></label></td>
-		<td><input type="checkbox" id="shuffle"/><label class="shuffle" for="shuffle"></label></td>
-		<td><input type="checkbox" id="repeat" checked /><label class="repeat" for="repeat"></label></td>
-		<td><input type="checkbox" id="options"/><label class="options" for="options"></label></td>
-	</table>
-	{{ encore_entry_script_tags('app') }}
+	
+    <script>
+        var audio = document.getElementById('audio');
+        var playpause = document.getElementById("play");
+
+
+        function togglePlayPause() {
+           if (audio.paused || audio.ended) {
+              playpause.title = "Pause";
+              audio.play();
+           } else {
+              playpause.title = "Play";
+              audio.pause();
+           }
+        }
+    </script>
 </body>
 </html>
