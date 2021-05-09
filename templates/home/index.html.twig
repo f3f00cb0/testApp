@@ -73,11 +73,13 @@
                 source.src = musics[HMSIP];
                 audio.load();
                 audio.play();
+                MPIP = HMSIP;
             } else {
                 console.log(musics[previousSong]);
                 source.src = musics[previousSong];
                 audio.load();
                 audio.play();
+                MPIP = MPIP - 1;
             }
             console.log('backward');
         }
@@ -88,10 +90,12 @@
                 source.src = musics[0];
                 audio.load();
                 audio.play();
+                MPIP = 0;
             } else {
                 source.src = musics[nextSong];
                 audio.load();
                 audio.play();
+                MPIP = MPIP + 1;
             }
             console.log('forward');
         }
