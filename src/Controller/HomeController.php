@@ -28,7 +28,7 @@ class HomeController extends AbstractController
         }
       }
 
-      var_dump($files);
+      //var_dump($files);
 
       /*
       $finder = new Finder();

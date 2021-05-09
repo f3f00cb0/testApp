@@ -39,8 +39,11 @@
     <script>
         var audio = document.getElementById('audio');
         var playpause = document.getElementById("play");
-
-
+        var musics;
+        {% for file in files %}
+            musics.push(file);
+        {% endfor %}
+        console.log(musics);
         function togglePlayPause() {
            if (audio.paused || audio.ended) {
               playpause.title = "Pause";
