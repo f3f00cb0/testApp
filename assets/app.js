@@ -15,13 +15,12 @@ window.onload = function() {
     class Randomize {
             
         constructor(){
-           
-    
             this.init()
             this.onClick()
         }
     
         init(){
+            console.log('OK !');
             const images = [
                 {id: 0, url: './images/grimace1.png'},
                 {id: 1, url: './images/grimace2.png'},
