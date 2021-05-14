@@ -13,13 +13,17 @@ body {
 #conteneur {
     display: flex;
     border: solid 2px black;
+    margin: 0 auto;
 }
 #conteneurGauche {
     border: solid 2px black;
+    width: 515px;
+    height: 728px;
+}
+#conteneurDroite {
+    width: 515px;
 }
 #conteneurGauche, #conteneurDroite {
-    width: 50%;
-    height: 842px;
     background-color: white;
     display: flex;
     flex-wrap: wrap;
