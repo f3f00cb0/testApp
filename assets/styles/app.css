@@ -12,6 +12,7 @@ body {
 }
 #conteneur {
     display: flex;
+    border: solid 2px black;
 }
 #conteneurGauche, #conteneurDroite {
     width: 50%;
