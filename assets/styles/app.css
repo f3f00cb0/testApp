@@ -1,3 +1,129 @@
 body {
     background-color: lightgray;
 }
+body {
+    background-image: url(./images/fond.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.box {
+    width: 596px;
+    height: 75px;
+    background-color: rgb(235, 235, 235);
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+}
+.conteneur {
+    width: 596px;
+    height: 842px;
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+.un {
+    width:330px;
+    height: 580px;
+    padding: 20px;
+    background-color: tomato;
+}
+.un img {
+    max-width: -webkit-fill-available;
+}
+.deux {
+    background-color:blue;
+    width: 186px;
+    height: 390px;
+    padding: 20px;
+}
+.deux p {
+    color: white;
+    font-size: 1rem;
+    font-family: Roboto;
+}
+.trois {
+    background-color: green;
+    width: 560px;
+    height: 182px;
+    padding: 20px;
+}
+.trois p {
+    color: white;
+    font-size: 3rem;
+    font-family: Roboto;
+}
+.quatre {
+    width:258px;
+    height: 390px;
+    padding: 20px;
+    background-color: tomato;
+}
+.quatre p {
+    color: white;
+    font-size: 3rem;
+    font-family: Roboto;
+    letter-spacing: 5px;
+}
+.cinq {
+    width: 258px;
+    height: 390px;
+    padding: 20px;
+    background-color: green;
+}
+.cinq p {
+    color: white;
+    font-size: 1rem;
+    font-family: Roboto;
+    letter-spacing: 5px;
+}
+.six {
+    width: 560px;
+    height: 390px;
+    padding: 20px;
+    background-color: blue;
+}
+.six img {
+    max-width: -webkit-fill-available;
+}
+.sept {
+    width: 186px;
+    height: 390px;
+    padding: 20px;
+    background-color: yellow;
+}
+.sept p {
+    color: white;
+    font-size: 1rem;
+    font-family: Roboto;
+    letter-spacing: 5px;
+}
+.huit {
+    width:330px;
+    height: 580px;
+    padding: 20px;
+    background-color: tomato;
+}
+.huit img {
+    max-width: -webkit-fill-available;
+}
+.neuf {
+    background-color: green;
+    width: 560px;
+    height: 182px;
+    padding: 20px;
+}
+.neuf p {
+    color: white;
+    font-size: 3rem;
+    font-family: Roboto;
+    letter-spacing: 5px;
+}
+#initParagraphe {
+    margin: 10px; 
+    padding: 10px; 
+    background-color:lightgray; 
+    border-radius: 10px;
+    box-shadow: 3px 2px 1px darkgray;
+}
