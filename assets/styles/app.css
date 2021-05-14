@@ -10,7 +10,15 @@ body {
     margin-bottom: 2rem;
     border-radius: 10px;
 }
-.conteneur {
+#conteneurGauche {
+    width: 596px;
+    height: 842px;
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+#conteneurDroite {
     width: 596px;
     height: 842px;
     background-color: white;
