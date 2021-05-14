@@ -60,4 +60,14 @@ class HomeController extends AbstractController
       'message' => $message
     ]);
   }
+
+  /*
+  * @Route("/affiches")
+  */
+  public function ShowAffichesDev(){
+    $message = 'Affiches';
+    return $this->render('affiches/index.html.twig', [
+      'message' => $message
+    ]);
+  }
 }

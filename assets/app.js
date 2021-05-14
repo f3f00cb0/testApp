@@ -10,3 +10,11 @@ import './styles/app.css';
 
 // start the Stimulus application
 import './bootstrap';
+
+window.onload = function() {
+    init();
+};
+
+function inite() {
+    console.log('OK');
+}
