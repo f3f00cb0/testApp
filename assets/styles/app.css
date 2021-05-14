@@ -13,16 +13,8 @@ body {
 #conteneur {
     display: flex;
 }
-#conteneurGauche {
-    width: 596px;
-    height: 842px;
-    background-color: white;
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 2rem;
-}
-#conteneurDroite {
-    width: 596px;
+#conteneurGauche, #conteneurDroite {
+    width: 50%;
     height: 842px;
     background-color: white;
     display: flex;
