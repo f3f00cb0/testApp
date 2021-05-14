@@ -15,6 +15,6 @@ window.onload = function() {
     init();
 };
 
-function inite() {
+function init() {
     console.log('OK');
 }
