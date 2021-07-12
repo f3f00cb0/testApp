@@ -6,17 +6,23 @@
  */
 
 // any CSS you import will output into a single css file (app.css in this case)
+
+import './styles/bulma.css'; 
+
 import './styles/app.css';
+
+
 
 // start the Stimulus application
 import './bootstrap';
+
 
 window.onload = function() {
     class Randomize {
             
         constructor(){
-            this.init()
-            this.onClick()
+            //this.init()
+            //this.onClick()
         }
     
         init(){
@@ -55,5 +61,56 @@ window.onload = function() {
     }
     
     const randomize = new Randomize();
+
+    class MusicPlayer {
+        constructor() {
+            this.init()
+        }
+
+        init(){
+            console.log('lowkey kinda hot 🥵');
+        }
+    }
+
+    const musicPlay = new MusicPlayer();
+    
+
+    //Form JS
+    
+    var context = document.getElementById('selectContext');
+
+    console.log(context);
+
+    if(context !== null){
+        context.addEventListener("change", changeContext);
+        hideAllForms();
+    }
+
+    function changeContext(){
+        var context = document.getElementById('selectContext');
+        hideAllForms();
+        switch (context.value){
+            case 'artiste' :
+                console.log('artiste');
+                document.getElementById('form-artiste').style.display = "block";
+                break;
+            case 'album' :
+                console.log('album');
+                document.getElementById('form-album').style.display = "block";
+                break;
+            case 'titre' :
+                console.log('titre');
+                document.getElementById('form-titre').style.display = "block";
+                break;      
+        }
+    }
+
+    function hideAllForms(){
+        document.getElementById('form-titre').style.display = "none";
+        document.getElementById('form-album').style.display = "none";
+        document.getElementById('form-artiste').style.display = "none";
+    }
 };
+
+
 

@@ -6,6 +6,13 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Finder\Finder;
+use Symfony\Component\HttpFoundation\Request;
+use Doctrine\ORM\EntityManagerInterface;
+use App\Entity\Titre;
+use App\Service\AddContent;
+use App\Entity\Album;
+use App\Form\AlbumType;
+
 
 class HomeController extends AbstractController
 {
@@ -70,4 +77,90 @@ class HomeController extends AbstractController
       'message' => $message
     ]);
   }
+
+  /**
+   * @Route("/ajoutMusique")
+   */
+  public function AjoutMusique(){
+      $em = $this->getDoctrine()->getManager();
+      $message = 'not';
+      $request = Request::createFromGlobals();
+      $nomTitre = $request->request->get('name');
+      $artisteTitre = $request->request->get('artiste');
+      $albumTitre = $request->request->get('album');
+      $pathTitre = $nomTitre.'.mp3';
+      $titres = $this->getDoctrine()->getRepository(Titre::class)->findAll();
+      dump($titres);
+      if ($nomTitre !== null && $artisteTitre !== null && $albumTitre !== null) {
+          $titre = new Titre();
+          $titre->setNom($nomTitre);
+          $titre->setPath($pathTitre);
+          $titre->setArtiste(1);
+          $titre->setAlbum(1);
+          $em->persist($titre);
+          $em->flush();
+          $message = 'ok';
+      }
+
+      return $this->render('home/ajoutmusique.html.twig', [
+          'titres' => $titres,
+          'message' => $message,
+          'id' => $nomTitre
+      ]);
+  }
+
+    /**
+     * @Route("/ajoutAlbum")
+     */
+    public function AjoutAlbum(){
+        $em = $this->getDoctrine()->getManager();
+        $message = 'not';
+        $request = Request::createFromGlobals();
+        $nomTitre = $request->request->get('name');
+        $artisteTitre = $request->request->get('artiste');
+        $albumTitre = $request->request->get('album');
+        $pathTitre = $nomTitre.'.mp3';
+        $titres = $this->getDoctrine()->getRepository(Titre::class)->findAll();
+        dump($titres);
+        if ($nomTitre !== null && $artisteTitre !== null && $albumTitre !== null) {
+            $titre = new Titre();
+            $titre->setNom($nomTitre);
+            $titre->setPath($pathTitre);
+            $titre->setArtiste(1);
+            $titre->setAlbum(1);
+            $em->persist($titre);
+            $em->flush();
+            $message = 'ok';
+        }
+
+        return $this->render('home/ajoutmusique.html.twig', [
+            'titres' => $titres,
+            'message' => $message,
+            'id' => $nomTitre
+        ]);
+    }
+
+    /**
+     * @Route("/ajout")
+     */
+    public function AjoutArtiste(AddContent $addContent){
+        $message = 'not';
+        $request = Request::createFromGlobals();
+        $context = $request->request->get('context');
+        dump($context);
+        $content = $addContent->persistContent('bags', $context);
+
+        $album = new Album();
+        $formAlbum = $this->createForm(AlbumType::class, $album);
+
+        if ($formAlbum->isSubmitted() && $formAlbum->isValid()){
+
+        }
+
+        return $this->render('home/ajout.html.twig', [
+            'formalbum' => $formAlbum->createView(),
+            'titres' => 'e',
+            'message' => $message
+        ]);
+    }
 }

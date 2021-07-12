@@ -37,11 +37,6 @@ class Titre
      */
     private $artiste;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $n;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -91,18 +86,6 @@ class Titre
     public function setArtiste(int $artiste): self
     {
         $this->artiste = $artiste;
-
-        return $this;
-    }
-
-    public function getN(): ?string
-    {
-        return $this->n;
-    }
-
-    public function setN(string $n): self
-    {
-        $this->n = $n;
 
         return $this;
     }

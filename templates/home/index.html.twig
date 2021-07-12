@@ -8,7 +8,7 @@
         {# 'app' must match the first argument to addEntry() in webpack.config.js #}
         {{ encore_entry_link_tags('app') }}
         <!-- Renders a link tag (if your module requires any CSS) 
-        <link rel="stylesheet" href="/build/app.css"> -->
+        <link rel="stylesheet" href="/build/app.css"> -->k
     {% endblock %}
 
     {% block javascripts %}
@@ -20,94 +20,279 @@
     {% endblock %}
 </head>
 <body>
-
-    <section id="home">
-        {{ number }} | {{ message }}
+<div class="container is-fluid">
+    <section id="header">
     </section>
+</div>
 
+<section class="section" id="listsApp">
+    <div class="container is-fluid">
+        <div class="columns is-mobile">
+            <div class="column is-12">
+                {% for key in files %}
+                    <li>{{ key }}</li>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="controlsApp">
+    <div class="container is-fluid">
+        <div class="columns is-mobile">
+            <div class="column is-12">
+                <p id="playingnow"></p>
+                <audio preload="auto" id="audio" controls>
+                    <source id="audiosource" src="JACKBOYS, Sheck Wes - GANG GANG.mp3">
+                </audio>
+                <div class="columns is-mobile" id="controls">
+                    <div class="column is-12">
+                        <div id="timeline">
+                            <div id="playhead"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="columns is-mobile" id="controlButtons">
+                    <div class="column is-4">
+                        <label class="backward" for="backward">
+                            <svg version="1.1" id="backwardbutton" onclick="backward()"
+                                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                                 y="0px"
+                                 viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+                                    <style type="text/css">
+                                        .st0 {
+                                            fill: #01A3AB;
+                                        }
+
+                                        .st1 {
+                                            fill: #F7BEC0;
+                                        }
+                                    </style>
+                                <g>
+                                    <path class="st0" d="M23.81,46.73l3.98-1.99V23.32c0-2.56-2.08-4.64-4.64-4.64h-1.53c-2.56,0-4.64,2.08-4.64,4.64v55.11
+                                    		c0,2.56,2.08,4.64,4.64,4.64h1.53c2.56,0,4.64-2.08,4.64-4.64V57.02l-3.98-1.99C20.38,53.32,20.38,48.44,23.81,46.73z"/>
+                                    <path class="st1" d="M76.3,20.48L27.79,44.73l-3.98,1.99c-3.42,1.71-3.42,6.59,0,8.3l3.98,1.99L76.3,81.28
+                                    		c3.09,1.54,6.72-0.7,6.72-4.15v-52.5C83.02,21.18,79.39,18.94,76.3,20.48z"/>
+                                </g>
+                                    </svg>
+                        </label>
+                    </div>
+                    <div class="column is-4">
+                        <label class="play" for="play">
+                            <svg version="1.1" id="playbutton" onclick="togglePlayPause()"
+                                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                                 y="0px"
+                                 viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+                                    <style type="text/css">
+                                        .st0 {
+                                            fill: #01A3AB;
+                                        }
+                                    </style>
+                                <path class="st0" d="M80.52,47.08L22.4,18.02c-2.17-1.09-4.73,0.49-4.73,2.92v58.11c0,2.43,2.55,4.01,4.73,2.92l58.11-29.06
+                                    	C82.92,51.72,82.92,48.28,80.52,47.08z"/>
+                                    </svg>
+                        </label>
+                        <label class="pause" for="pause">
+                            <svg version="1.1" id="pausebutton" onclick="togglePlayPause()"
+                                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                                 y="0px"
+                                 viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+                                    <style type="text/css">
+                                        .st0 {
+                                            fill: #01A3AB;
+                                        }
+                                    </style>
+                                <path class="st0" d="M62.53,89.42L62.53,89.42c3.65,0,6.62-2.96,6.62-6.62V17.2c0-3.65-2.96-6.62-6.62-6.62h0
+                                    	c-3.65,0-6.62,2.96-6.62,6.62v65.6C55.91,86.45,58.87,89.42,62.53,89.42z"/>
+                                <path class="st0" d="M37.47,89.42L37.47,89.42c3.65,0,6.62-2.96,6.62-6.62V17.2c0-3.65-2.96-6.62-6.62-6.62h0
+                                    	c-3.65,0-6.62,2.96-6.62,6.62v65.6C30.86,86.45,33.82,89.42,37.47,89.42z"/>
+                                    </svg>
+                        </label>
+                    </div>
+                    <div class="column is-4">
+                        <label class="forward" for="forward">
+                            <svg version="1.1" id="forwardbutton" onclick="forward()" xmlns="http://www.w3.org/2000/svg"
+                                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                 viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+                                    <style type="text/css">
+                                        .st0 {
+                                            fill: #01A3AB;
+                                        }
+
+                                        .st1 {
+                                            fill: #F7BEC0;
+                                        }
+                                    </style>
+                                <g>
+                                    <path class="st0" d="M76.19,46.73l-3.98-1.99V23.32c0-2.56,2.08-4.64,4.64-4.64h1.53c2.56,0,4.64,2.08,4.64,4.64v55.11
+                                    		c0,2.56-2.08,4.64-4.64,4.64h-1.53c-2.56,0-4.64-2.08-4.64-4.64V57.02l3.98-1.99C79.62,53.32,79.62,48.44,76.19,46.73z"/>
+                                    <path class="st1" d="M23.7,20.48l48.51,24.26l3.98,1.99c3.42,1.71,3.42,6.59,0,8.3l-3.98,1.99L23.7,81.28
+                                    		c-3.09,1.54-6.72-0.7-6.72-4.15v-52.5C16.98,21.18,20.61,18.94,23.7,20.48z"/>
+                                </g>
+                                    </svg>
+                        </label>
+                    </div>
+                </div>
+                <div class="columns is-mobile" id="volumecontrol">
+                    <div class="column is-12">
+                        <input type="range" id="volume-control" min="0" max="100" value="100" step="1">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--<section id="home">
+        {{ number }} | {{ message }} | EEE
+    </section>-->
+
+
+<script>
+    const musics = [];
     {% for key in files %}
-        <li>{{ key }}</li>
+    musics.push('{{ key }}');
     {% endfor %}
+    // How Many Songs In Playlist
+    var HMSIP = musics.length - 1;
+    var audio = document.getElementById('audio');
+    var duration = audio.duration;
+    var source = document.getElementById('audiosource');
+    var actualyPlaying = 0;
+    var playingNow = document.getElementById('playingnow');
+    // Music Playing In Playlist
+    var MPIP = 3;
+    source.src = musics[MPIP];
+    audio.load();
+    actualyPlaying = musics[MPIP];
+    playingNow.innerText = actualyPlaying.slice(0, -4);
 
+    function togglePlayPause() {
+        if (audio.paused || audio.ended) {
+            audio.play();
+            document.getElementById('playbutton').style.display = "none";
+            document.getElementById('pausebutton').style.display = "block";
+        } else {
+            audio.pause();
+            document.getElementById('playbutton').style.display = "block";
+            document.getElementById('pausebutton').style.display = "none";
 
-    <audio preload="auto" id="audio" controls>
-        <source id="audiosource" src="JACKBOYS, Sheck Wes - GANG GANG.mp3">
-	</audio>
-	<table class="player">
-		<td><input type="checkbox" id="backward" onclick="backward()"/><label class="backward" for="backward"></label></td>
-		<td><input type="checkbox" id="play" title="Play" onclick="togglePlayPause()"/><label class="play" for="play"></label></td>
-		<td><input type="checkbox" id="forward" onclick="forward()"/><label class="forward" for="forward"></label></td>
-        <input type="range" id="volume-control" value='100'>
-	</table>
-	
-	
-    <script>
-        var musics = [];
-        {% for key in files %}
-            musics.push('{{ key }}');
-        {% endfor %}
-        console.log(musics);
-        // How Many Songs In Playlist
-        var HMSIP = musics.length - 1;
-        console.log(HMSIP);
-        var audio = document.getElementById('audio');
-        var playpause = document.getElementById("play");
-        var source = document.getElementById('audiosource');
-        // Music Playing In Playlist
-        var MPIP = 3;
-        source.src = musics[MPIP];
-
-
-        let volume = document.querySelector("#volume-control");
-        volume.addEventListener("change", function(e) {
-            audio.volume = e.currentTarget.value / 100;
-        })
-        
-        function togglePlayPause() {
-           if (audio.paused || audio.ended) {
-              playpause.title = "Pause";
-              audio.play();
-           } else {
-              playpause.title = "Play";
-              audio.pause();
-           }
         }
+    }
 
-        function backward(){
-            var previousSong = MPIP - 1;
-            if (previousSong < 0) {
-                console.log(musics[HMSIP]);
-                source.src = musics[HMSIP];
-                audio.load();
-                audio.play();
-                MPIP = HMSIP;
-            } else {
-                console.log(musics[previousSong]);
-                source.src = musics[previousSong];
-                audio.load();
-                audio.play();
-                MPIP = MPIP - 1;
-            }
-            console.log('backward');
+    function backward() {
+        var previousSong = MPIP - 1;
+        if (previousSong < 0) {
+            console.log(musics[HMSIP]);
+            actualyPlaying = musics[HMSIP];
+            source.src = musics[HMSIP];
+            audio.load();
+            audio.play();
+            MPIP = HMSIP;
+        } else {
+            console.log(musics[previousSong]);
+            actualyPlaying = musics[previousSong];
+            source.src = musics[previousSong];
+            audio.load();
+            audio.play();
+            MPIP = MPIP - 1;
         }
+        console.log('backward');
+        playingNow.innerText = actualyPlaying.slice(0, -4);
+    }
 
-        function forward(){
-            var nextSong = MPIP + 1;
-            if (nextSong > HMSIP) {
-                source.src = musics[0];
-                audio.load();
-                audio.play();
-                MPIP = 0;
-            } else {
-                source.src = musics[nextSong];
-                audio.load();
-                audio.play();
-                MPIP = MPIP + 1;
-            }
-            console.log('forward');
+    function forward() {
+        var nextSong = MPIP + 1;
+        if (nextSong > HMSIP) {
+            actualyPlaying = musics[0];
+            source.src = musics[0];
+            audio.load();
+            audio.play();
+            MPIP = 0;
+        } else {
+            actualyPlaying = musics[nextSong];
+            source.src = musics[nextSong];
+            audio.load();
+            audio.play();
+            MPIP = MPIP + 1;
         }
+        console.log('forward');
+        playingNow.innerText = actualyPlaying.slice(0, -4);
+    }
 
-        var actualyPlaying = true;
-    </script>
+    var timeline = document.getElementById('timeline');
+    var playhead = document.getElementById("playhead");
+    var timelineWidth = timeline.offsetWidth - playhead.offsetWidth;
+    audio.addEventListener("timeupdate", timeUpdate, false);
+
+    timeline.addEventListener("click", function (event) {
+        moveplayhead(event);
+        audio.currentTime = duration * clickPercent(event);
+    }, false);
+
+    function timeUpdate() {
+        var playPercent = timelineWidth * (audio.currentTime / duration);
+        playhead.style.marginLeft = playPercent + "px";
+    }
+
+    function clickPercent(event) {
+        return (event.clientX - getPosition(timeline)) / timelineWidth;
+    }
+
+    playhead.addEventListener('mousedown', mouseDown, false);
+    window.addEventListener('mouseup', mouseUp, false);
+
+    var onplayhead = false;
+
+    function mouseDown() {
+        onplayhead = true;
+        window.addEventListener('mousemove', moveplayhead, true);
+        audio.removeEventListener('timeupdate', timeUpdate, false);
+    }
+
+    function mouseUp(event) {
+        if (onplayhead == true) {
+            moveplayhead(event);
+            window.removeEventListener('mousemove', moveplayhead, true);
+            // change current time
+            audio.currentTime = duration * clickPercent(event);
+            audio.addEventListener('timeupdate', timeUpdate, false);
+        }
+        onplayhead = false;
+    }
+
+    function moveplayhead(event) {
+        var newMargLeft = event.clientX - getPosition(timeline);
+
+        if (newMargLeft >= 0 && newMargLeft <= timelineWidth) {
+            playhead.style.marginLeft = newMargLeft + "px";
+        }
+        if (newMargLeft < 0) {
+            playhead.style.marginLeft = "0px";
+        }
+        if (newMargLeft > timelineWidth) {
+            playhead.style.marginLeft = timelineWidth + "px";
+        }
+    }
+
+
+    let volume = document.querySelector("#volume-control");
+    volume.addEventListener("change", function (e) {
+        audio.volume = e.currentTarget.value / 100;
+    })
+
+    audio.onended = function () {
+        forward();
+    };
+
+    function getPosition(el) {
+        return el.getBoundingClientRect().left;
+    }
+
+    audio.addEventListener("canplaythrough", function () {
+        duration = audio.duration;
+    }, false);
+
+</script>
 </body>
-</html>
+</html> 

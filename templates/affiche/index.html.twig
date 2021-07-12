@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width">
+    {% block stylesheets %}
+        {# 'app' must match the first argument to addEntry() in webpack.config.js #}
+        {{ encore_entry_link_tags('app') }}
+        <!-- Renders a link tag (if your module requires any CSS) 
+        <link rel="stylesheet" href="/build/app.css"> -->
+    {% endblock %}
+
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+        <!-- Renders app.js & a webpack runtime.js file
+        <script src="/build/runtime.js" defer></script>
+        <script src="/build/app.js" defer></script>
+        See note below about the "defer" attribute -->
+    {% endblock %}
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="conteneur">
+    <div id="conteneurGauche">
+        <div id="un" class="un">image</div>
+        <div id="deux" class="deux">infos</div>
+        <div id="trois" class="trois">titre</div>
+    </div>
+    <div id="traitseparation">
+
+    </div>
+    <div id="conteneurDroite">
+        <a style="margin: 10px;">évènement</a>
+        <input type="text" id="textdeux" name="titre" style="margin: 10px;"/>
+        <a style="margin: 10px;">infos</a>
+        <input type="text" id="textun" name="infos" style="margin: 10px;"/>
+        <a id="initParagraphe" href="#" onclick="onClick()">click</a>
+    </div>
+</div>
+</body>
+</html>
