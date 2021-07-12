@@ -1,3 +1,89 @@
+body {
+    background-color: #ABA3A0;
+}
+
+#playbutton {
+    width: 100px;
+    height: 100px;
+}
+
+#pausebutton {
+    height: 90px;
+    width: 90px;
+}
+
+.backward, .play, .forward, .pause {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.backward, .forward {
+    padding-top: 20px;
+}
+
+#volumecontrol {
+    display: none;
+}
+
+#backwardbutton, #forwardbutton {
+    height: 60px;
+    width: 60px;
+}
+
+#pausebutton {
+    display: none;
+}
+
+#timeline {
+	width: 100%;
+	height: 20px;
+	margin-top: 20px;
+	float: left;
+	border-radius: 15px;
+	background: rgba(0,0,0,.3);
+    position: relative;
+}
+
+#playhead {
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	margin-top: 1px;
+	background: rgba(0, 0, 0,1);
+    position: absolute;
+    left: 0px;
+}
+
+audio {
+    display: none;
+}
+
+#playingnow {
+    margin-top: 20px;
+}
+
+#controlsApp {
+    background: #ABA3A0;
+    border-top: solid 2px black;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    height: 211px;
+}
+
+.column {
+    padding: 0;
+}
+
+#controls {
+    padding-top: 20px;
+}
+
+#volumecontrol {
+    padding: .75rem;
+}
+
 .box {
     width: 596px;
     height: 75px;
@@ -7,48 +93,57 @@
     margin-bottom: 2rem;
     border-radius: 10px;
 }
+
 #conteneur {
     display: flex;
     border: solid 2px black;
     margin: 0 auto;
     justify-content: center;
 }
+
 #conteneurGauche {
     border: solid 2px black;
     width: 515px;
     height: 728px;
     margin-right: 50px;
 }
+
 #conteneurDroite {
     width: 515px;
     margin-left: 50px;
 }
+
 #conteneurGauche, #conteneurDroite {
     background-color: white;
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 2rem;
 }
+
 .un {
     width:330px;
     height: 580px;
     padding: 20px;
     background-color: tomato;
 }
+
 .un img {
     max-width: -webkit-fill-available;
 }
+
 .deux {
     background-color:blue;
     width: 186px;
     height: 390px;
     padding: 20px;
 }
+
 .deux p {
     color: white;
     font-size: 1rem;
     font-family: Roboto;
 }
+
 .trois {
     background-color: green;
     width: 560px;

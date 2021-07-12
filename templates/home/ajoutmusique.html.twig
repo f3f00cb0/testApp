@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width">
+    {% block stylesheets %}
+        {# 'app' must match the first argument to addEntry() in webpack.config.js #}
+        {{ encore_entry_link_tags('app') }}
+        <!-- Renders a link tag (if your module requires any CSS) 
+        <link rel="stylesheet" href="/build/app.css"> -->
+    {% endblock %}
+
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+        <!-- Renders app.js & a webpack runtime.js file
+        <script src="/build/runtime.js" defer></script>
+        <script src="/build/app.js" defer></script>
+        See note below about the "defer" attribute -->
+    {% endblock %}
+</head>
+<body>
+<div class="container is-fluid" style="padding-top: 20px;">
+    <section id="header">
+        <div class="columns is-mobile">
+            <div class="column is-half is-offset-one-quarter">
+                {% dump(titres) %}
+                {% if message == 'not' %}
+
+                {% else %}
+                    Musique ajoutée avec succès ! {{ message }}
+                {% endif %}
+                <form action="/ajoutMusique" method="post">
+                    <div class="field">
+                        <span>Context </span>
+                        <div class="select">
+                            <select name="context">
+                                <option>Select dropdown</option>
+                                <option>With options</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Name</label>
+                        <div class="control">
+                            <input class="input" type="text" name="name" placeholder="Text input">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Artiste</label>
+                        <div class="control">
+                            <input class="input" type="text" name="artiste" placeholder="Text input">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Album</label>
+                        <div class="control">
+                            <input class="input" type="text" name="album" placeholder="Text input">
+                        </div>
+                    </div>
+                    <div class="field is-grouped">
+                        <div class="control">
+                            <button class="button is-link">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</div>
+</body>
+</html> 
