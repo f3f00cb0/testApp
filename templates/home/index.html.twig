@@ -158,8 +158,8 @@
     const audio = document.getElementById('audio');
     var duration = audio.duration;
     const source = document.getElementById('audiosource');
-    var actualyPlaying = 0;
-    var playingNow = document.getElementById('playingnow');
+    const actualyPlaying = 0;
+    const playingNow = document.getElementById('playingnow');
     // Music Playing In Playlist
     var MPIP = 3;
     source.src = musics[MPIP];
@@ -173,6 +173,8 @@
                 source.src = musics[i];
                 audio.load();
                 audio.play();
+                actualyPlaying = musics[i];
+                playingNow.innerText = actualyPlaying.slice(0, -4);
             }
         }
     }
