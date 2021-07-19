@@ -161,7 +161,7 @@
     let actualyPlaying = 0;
     let playingNow = document.getElementById('playingnow');
     // Music Playing In Playlist
-    var MPIP = 3;
+    let MPIP = 3;
     source.src = musics[MPIP];
     audio.load();
     actualyPlaying = musics[MPIP];
@@ -170,6 +170,7 @@
     function readSong(song){
         for (let i = 0; i < musics.length; i++){
             if (song === musics[i]){
+                MPIP = i;
                 source.src = musics[i];
                 audio.load();
                 audio.play();
