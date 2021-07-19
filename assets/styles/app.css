@@ -12,7 +12,7 @@ body {
     width: 90px;
 }
 
-.backward, .play, .forward, .pause {
+.backward, .play, .forward, .pause, .repeat {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,7 +26,7 @@ body {
     display: none;
 }
 
-#backwardbutton, #forwardbutton {
+#backwardbutton, #forwardbutton, #repeatbutton {
     height: 60px;
     width: 60px;
 }
