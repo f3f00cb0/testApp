@@ -18,6 +18,10 @@ body {
     align-items: center;
 }
 
+.repeat {
+    margin-top: 20px;
+}
+
 .backward, .forward {
     padding-top: 20px;
 }
