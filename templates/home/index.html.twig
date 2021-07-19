@@ -171,6 +171,7 @@
     audio.load();
     actualyPlaying = musics[MPIP];
     playingNow.innerText = actualyPlaying.slice(0, -4);
+    let repeat = false;
 
     function readSong(song){
         for (let i = 0; i < musics.length; i++){
@@ -269,7 +270,7 @@
     }
 
     function mouseUp(event) {
-        if (onplayhead == true) {
+        if (onplayhead === true) {
             moveplayhead(event);
             window.removeEventListener('mousemove', moveplayhead, true);
             // change current time
@@ -301,6 +302,7 @@
 
     audio.onended = function () {
         forward();
+        backward();
     };
 
     function getPosition(el) {
