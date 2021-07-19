@@ -30,7 +30,7 @@
         <div class="columns is-mobile">
             <div class="column is-12">
                 {% for key in files %}
-                    <li>{{ key }}</li>
+                    <li onclick="readSong({{ key }})">{{ key }}</li>
                 {% endfor %}
             </div>
         </div>
@@ -166,6 +166,10 @@
     audio.load();
     actualyPlaying = musics[MPIP];
     playingNow.innerText = actualyPlaying.slice(0, -4);
+
+    function readSong(song){
+        console.log(song);
+    }
 
     function togglePlayPause() {
         if (audio.paused || audio.ended) {
