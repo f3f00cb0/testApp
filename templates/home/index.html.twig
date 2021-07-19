@@ -158,8 +158,8 @@
     const audio = document.getElementById('audio');
     var duration = audio.duration;
     const source = document.getElementById('audiosource');
-    const actualyPlaying = 0;
-    const playingNow = document.getElementById('playingnow');
+    let actualyPlaying = 0;
+    let playingNow = document.getElementById('playingnow');
     // Music Playing In Playlist
     var MPIP = 3;
     source.src = musics[MPIP];
