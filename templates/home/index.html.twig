@@ -169,8 +169,9 @@
 
     function readSong(song){
         console.log(song);
-        const result = musics.find(song);
-        console.log(result);
+        for (let i = 0; i < musics.length; i++){
+            console.log(musics[i]);
+        }
     }
 
     function togglePlayPause() {
