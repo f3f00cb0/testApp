@@ -8,7 +8,7 @@
         {# 'app' must match the first argument to addEntry() in webpack.config.js #}
         {{ encore_entry_link_tags('app') }}
         <!-- Renders a link tag (if your module requires any CSS) 
-        <link rel="stylesheet" href="/build/app.css"> -->k
+        <link rel="stylesheet" href="/build/app.css"> -->
     {% endblock %}
 
     {% block javascripts %}
@@ -18,6 +18,11 @@
         <script src="/build/app.js" defer></script>
         See note below about the "defer" attribute -->
     {% endblock %}
+    <style>
+        li {
+            width: -moz-fit-content;
+        }
+    </style>
 </head>
 <body>
 <div class="container is-fluid">
