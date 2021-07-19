@@ -155,9 +155,9 @@
     {% endfor %}
     // How Many Songs In Playlist
     var HMSIP = musics.length - 1;
-    var audio = document.getElementById('audio');
+    const audio = document.getElementById('audio');
     var duration = audio.duration;
-    var source = document.getElementById('audiosource');
+    const source = document.getElementById('audiosource');
     var actualyPlaying = 0;
     var playingNow = document.getElementById('playingnow');
     // Music Playing In Playlist
@@ -171,6 +171,11 @@
         console.log(song);
         for (let i = 0; i < musics.length; i++){
             console.log(musics[i]);
+            if (song === musics[i]){
+                source.src = musics[i];
+                audio.load();
+                audio.play();
+            }
         }
     }
 
