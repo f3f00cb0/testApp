@@ -301,8 +301,12 @@
     })
 
     audio.onended = function () {
-        forward();
-        backward();
+        if (repeat) {
+            forward();
+            backward();
+        } else {
+            forward();
+        }
     };
 
     function getPosition(el) {
