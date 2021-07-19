@@ -168,9 +168,7 @@
     playingNow.innerText = actualyPlaying.slice(0, -4);
 
     function readSong(song){
-        console.log(song);
         for (let i = 0; i < musics.length; i++){
-            console.log(musics[i]);
             if (song === musics[i]){
                 source.src = musics[i];
                 audio.load();
