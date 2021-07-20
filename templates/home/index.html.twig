@@ -191,7 +191,9 @@
         if (repeat){
             repeatButtonTop.style = 'fill: black;';
             repeatButtonBottom.style = 'fill: black;';
+            audio.loop = false;
         } else {
+            audio.loop = true;
             repeatButtonTop.style = 'fill: green;';
             repeatButtonBottom.style = 'fill: green;';
         }
@@ -326,12 +328,7 @@
     })
 
     audio.onended = function () {
-        if (repeat) {
-            forward();
-            backward();
-        } else {
-            forward();
-        }
+        forward();
     };
 
     function getPosition(el) {
