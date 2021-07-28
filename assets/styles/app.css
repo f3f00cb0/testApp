@@ -7,6 +7,10 @@ li {
     width: fit-content;
 }
 
+.playing {
+    color: green;
+}
+
 #playbutton {
     width: 100px;
     height: 100px;
