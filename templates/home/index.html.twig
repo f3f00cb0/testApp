@@ -33,7 +33,7 @@
         <div class="columns is-mobile">
             <div class="column is-12">
                 {% for key in files %}
-                    <li data-music="yes" onclick="readSong('{{ key }}')">{{ key }}</li>
+                    <li class="song" data-music="yes" onclick="readSong('{{ key }}')">{{ key }}</li>
                 {% endfor %}
             </div>
         </div>
@@ -170,6 +170,7 @@
     {% for key in files %}
     musics.push('{{ key }}');
     {% endfor %}
+    const songs = document.getElementsByClassName('song');
     // How Many Songs In Playlist
     let HMSIP = musics.length - 1;
     const audio = document.getElementById('audio');
@@ -234,6 +235,15 @@
             console.log(musics[HMSIP]);
             actualyPlaying = musics[HMSIP];
             source.src = musics[HMSIP];
+
+            //SET CLASS PAYING TO SONG
+            let playingNow = songs[HMSIP];
+
+            //remove all playing class
+            let songsInList = document.getElementsByClassName('playing');
+            songsInList[0].classList.remove('playing');
+            playingNow.classList.add('playing');
+
             audio.load();
             audio.play();
             MPIP = HMSIP;
@@ -241,6 +251,15 @@
             console.log(musics[previousSong]);
             actualyPlaying = musics[previousSong];
             source.src = musics[previousSong];
+
+            //SET CLASS PAYING TO SONG
+            let playingNow = songs[previousSong];
+
+            //remove all playing class
+            let songsInList = document.getElementsByClassName('playing');
+            songsInList[0].classList.remove('playing');
+            playingNow.classList.add('playing');
+
             audio.load();
             audio.play();
             MPIP = MPIP - 1;
@@ -254,12 +273,30 @@
         if (nextSong > HMSIP) {
             actualyPlaying = musics[0];
             source.src = musics[0];
+
+            //SET CLASS PAYING TO SONG
+            let playingNow = songs[0];
+
+            //remove all playing class
+            let songsInList = document.getElementsByClassName('playing');
+            songsInList[0].classList.remove('playing');
+            playingNow.classList.add('playing');
+
             audio.load();
             audio.play();
             MPIP = 0;
         } else {
             actualyPlaying = musics[nextSong];
             source.src = musics[nextSong];
+
+            //SET CLASS PAYING TO SONG
+            let playingNow = songs[nextSong];
+
+            //remove all playing class
+            let songsInList = document.getElementsByClassName('playing');
+            songsInList[0].classList.remove('playing');
+            playingNow.classList.add('playing');
+
             audio.load();
             audio.play();
             MPIP = MPIP + 1;
