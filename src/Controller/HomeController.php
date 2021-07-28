@@ -23,12 +23,11 @@ class HomeController extends AbstractController
   {
       $number = 15;
 
-      $message = "Hello fdp";
+      $message = "Hello";
 
       $directory = '/home/ubuntu/App/public';
       $scanned_directory = array_diff(scandir($directory), array('..', '.'));
       $files = [];
-      $i = 0;
       foreach ($scanned_directory as $temp_filename){
         if(str_ends_with($temp_filename, '.mp3')){
           $files[] = $temp_filename;
@@ -57,16 +56,6 @@ class HomeController extends AbstractController
       ]);
   }
 
-  /**
-   * @Route("/home")
-   */
-  public function homepage(){
-    $message = "Hello fdp bis zebi zebi";
-    return $this->render('home/index.html.twig', [
-      'number' => 16,
-      'message' => $message
-    ]);
-  }
 
   /**
    * @Route("/affiches")
