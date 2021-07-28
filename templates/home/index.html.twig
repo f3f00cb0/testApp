@@ -353,7 +353,9 @@
             if(target === songsInList[0]){
                 songsInList[1].classList.remove('playing');
             } else {
-                songsInList[0].classList.remove('playing');
+                if(songsInList[0].classList.contains('playing')){
+                    songsInList[0].classList.remove('playing');
+                }
             }
             target.classList.add('playing');
         }
