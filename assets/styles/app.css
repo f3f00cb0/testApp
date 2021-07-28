@@ -2,6 +2,11 @@ body {
     background-color: #ABA3A0;
 }
 
+li {
+    width: -moz-fit-content;
+    width: fit-content;
+}
+
 #playbutton {
     width: 100px;
     height: 100px;
