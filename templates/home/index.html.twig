@@ -349,8 +349,10 @@
             //remove all playing class
             let songsInList = document.getElementsByClassName('playing');
             if(target === songsInList[0]){
-                if(songsInList[1].classList.contains('playing')) {
-                    songsInList[1].classList.remove('playing');
+                if(songsInList[1]){
+                    if(songsInList[1].classList.contains('playing')) {
+                        songsInList[1].classList.remove('playing');
+                    }
                 }
             } else {
                 if(songsInList[0].classList.contains('playing')){
