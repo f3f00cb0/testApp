@@ -16,6 +16,11 @@ use Symfony\Component\HttpFoundation\Response;
 
 class UserController extends AbstractController
 {
+    /**
+     * @Route("/register", name="register", methods={"GET", "POST"})
+     * @param Request $request
+     * @return Response
+     */
     public function newUser(Request $request): Response
     {
         $user = new User();
