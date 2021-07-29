@@ -17,9 +17,10 @@ security:
             security: false
         main:
             guard:
+                entry_point: login
                 authenticators:
                     - App\Security\LoginFormAuthenticator
-                    entry_point: login
+
             lazy: true
             logout:
                 path: app_logout
