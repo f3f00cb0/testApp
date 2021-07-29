@@ -12,7 +12,7 @@ class SecurityController extends AbstractController
 {
 
     /**
-     * @Route("/login", name="login", methods={"GET", "POST"})
+     * @Route("/login", name="app_login", methods={"GET", "POST"})
      */
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
