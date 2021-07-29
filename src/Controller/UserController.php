@@ -37,7 +37,7 @@ class UserController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
 
             $formData = $form->getData();
-            dd($formData->getPassword);
+            dd($formData['password']);
             $plainPassword =
 
             $user->setPassword($encoded);
