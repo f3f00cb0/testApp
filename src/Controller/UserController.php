@@ -5,6 +5,7 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\Type\UserType;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
