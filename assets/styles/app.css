@@ -1,5 +1,5 @@
 body {
-    background-color: #ABA3A0;
+    background-color: #191c29;
 }
 
 
@@ -12,8 +12,7 @@ body {
 
 
 .cardplaying {
-    background: #191c29;
-
+    background: black;
     padding: 3px;
     position: relative;
     border-radius: 6px;
