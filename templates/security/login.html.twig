@@ -1,3 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width">
+    {% block stylesheets %}
+        {# 'app' must match the first argument to addEntry() in webpack.config.js #}
+        {{ encore_entry_link_tags('app') }}
+        <!-- Renders a link tag (if your module requires any CSS)
+        <link rel="stylesheet" href="/build/app.css"> -->
+    {% endblock %}
+
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+        <!-- Renders app.js & a webpack runtime.js file
+        <script src="/build/runtime.js" defer></script>
+        <script src="/build/app.js" defer></script>
+        See note below about the "defer" attribute -->
+    {% endblock %}
+    <style>
+
+    </style>
+</head>
+<body>
+<div class="container is-fluid">
+    <section id="header">
+        <form action="{{ path('login') }}" method="post">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="_username" value="{{ last_username }}"/>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="_password"/>
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+            {#
+            If you want to control the URL the user
+            is redirected to on success (more details below)
+            <input type="hidden" name="_target_path" value="/account"/>
+            #}
+
+            <button type="submit">login</button>
+        </form>
+    </section>
+</div>
+
 {% if error %}
     <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 {% endif %}
@@ -8,19 +54,3 @@
     </div>
 {% endif %}
 
-<form action="{{ path('login') }}" method="post">
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="_username" value="{{ last_username }}"/>
-
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="_password"/>
-    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-
-    {#
-    If you want to control the URL the user
-    is redirected to on success (more details below)
-    <input type="hidden" name="_target_path" value="/account"/>
-    #}
-
-    <button type="submit">login</button>
-</form>
