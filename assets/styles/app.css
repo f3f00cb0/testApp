@@ -84,6 +84,7 @@ li {
     width: -moz-fit-content;
     width: fit-content;
     list-style-type:none;
+    margin: 1rem;
 }
 
 .playing {
