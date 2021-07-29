@@ -20,7 +20,7 @@ body {
     justify-content: center;
     align-items: center;
     display: flex;
-    color: white;
+    color: #ae895d;
     cursor: pointer;
 }
 
@@ -84,6 +84,7 @@ li {
     width: fit-content;
     list-style-type:none;
     margin: 1rem;
+    color: #cb9d06;
 }
 
 .playing {
