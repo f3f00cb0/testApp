@@ -14,6 +14,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class UserController extends AbstractController
 {
@@ -22,7 +23,7 @@ class UserController extends AbstractController
      * @param Request $request
      * @return Response
      */
-    public function newUser(Request $request): Response
+    public function newUser(Request $request, UserPasswordEncoderInterface $encoder): Response
     {
         $user = new User();
 
@@ -34,6 +35,12 @@ class UserController extends AbstractController
             $user = $form->getData();
 
             $entityManager = $this->getDoctrine()->getManager();
+
+            $formData = $form->getData();
+            dd($formData);
+            $plainPassword =
+
+            $user->setPassword($encoded);
             $entityManager->persist($user);
             $entityManager->flush();
 
