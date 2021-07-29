@@ -25,6 +25,9 @@ class UserController extends AbstractController
      */
     public function newUser(Request $request, UserPasswordEncoderInterface $encoder): Response
     {
+        if ($this->isGranted('ROLE_USER') == false) {
+            return $this->redirectToRoute('home');
+        }
         $user = new User();
 
         $form = $this->createForm(UserType::class, $user);
