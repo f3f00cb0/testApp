@@ -1,60 +1,121 @@
 <?php
 
-
 namespace App\Entity;
 
+use App\Repository\UserRepository;
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
 
-class User
+/**
+ * @ORM\Entity(repositoryClass=UserRepository::class)
+ */
+class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
-    protected $username;
-    protected $password;
-    protected $email;
+    /**
+     * @ORM\Id
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
+     */
+    private $id;
 
     /**
-     * @return mixed
+     * @ORM\Column(type="string", length=180, unique=true)
      */
-    public function getUsername()
+    private $username;
+
+    /**
+     * @ORM\Column(type="json")
+     */
+    private $roles = [];
+
+    /**
+     * @var string The hashed password
+     * @ORM\Column(type="string")
+     */
+    private $password;
+
+    public function getId(): ?int
     {
-        return $this->username;
+        return $this->id;
     }
 
     /**
-     * @param mixed $username
+     * @deprecated since Symfony 5.3, use getUserIdentifier instead
      */
-    public function setUsername($username): void
+    public function getUsername(): string
+    {
+        return (string) $this->username;
+    }
+
+    public function setUsername(string $username): self
     {
         $this->username = $username;
+
+        return $this;
     }
 
     /**
-     * @return mixed
+     * A visual identifier that represents this user.
+     *
+     * @see UserInterface
      */
-    public function getPassword()
+    public function getUserIdentifier(): string
+    {
+        return (string) $this->username;
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function getRoles(): array
+    {
+        $roles = $this->roles;
+        // guarantee every user at least has ROLE_USER
+        $roles[] = 'ROLE_USER';
+
+        return array_unique($roles);
+    }
+
+    public function setRoles(array $roles): self
+    {
+        $this->roles = $roles;
+
+        return $this;
+    }
+
+    /**
+     * @see PasswordAuthenticatedUserInterface
+     */
+    public function getPassword(): string
     {
         return $this->password;
     }
 
-    /**
-     * @param mixed $password
-     */
-    public function setPassword($password): void
+    public function setPassword(string $password): self
     {
         $this->password = $password;
+
+        return $this;
     }
 
     /**
-     * @return mixed
+     * Returning a salt is only needed, if you are not using a modern
+     * hashing algorithm (e.g. bcrypt or sodium) in your security.yaml.
+     *
+     * @see UserInterface
      */
-    public function getEmail()
+    public function getSalt(): ?string
     {
-        return $this->email;
+        return null;
     }
 
     /**
-     * @param mixed $email
+     * @see UserInterface
      */
-    public function setEmail($email): void
+    public function eraseCredentials()
     {
-        $this->email = $email;
+        // If you store any temporary, sensitive data on the user, clear it here
+        // $this->plainPassword = null;
     }
 }
