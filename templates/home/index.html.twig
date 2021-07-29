@@ -386,21 +386,21 @@
         let isMusic = false;
         if (target.dataset.music) {
             isMusic = target.dataset.music;
-            target.classList.add('playing');
+            target.classList.add('card');
             //remove all playing class
-            let songsInList = document.getElementsByClassName('playing');
+            let songsInList = document.getElementsByClassName('card');
             if (target === songsInList[0]) {
                 if (songsInList[1]) {
-                    if (songsInList[1].classList.contains('playing')) {
-                        songsInList[1].classList.remove('playing');
+                    if (songsInList[1].classList.contains('card')) {
+                        songsInList[1].classList.remove('card');
                     }
                 }
             } else {
-                if (songsInList[0].classList.contains('playing')) {
-                    songsInList[0].classList.remove('playing');
+                if (songsInList[0].classList.contains('card')) {
+                    songsInList[0].classList.remove('card');
                 }
             }
-            target.classList.add('playing');
+            target.classList.add('card');
         }
     }, false);
 
