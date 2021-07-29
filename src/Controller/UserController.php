@@ -25,10 +25,10 @@ class UserController extends AbstractController
      */
     public function newUser(Request $request, UserPasswordEncoderInterface $encoder): Response
     {
-        dd($this->isGranted('ROLE_USER'));
-        if ($this->isGranted('ROLE_USER') == false) {
+        if ($this->isGranted('ROLE_USER') == true) {
             return $this->redirectToRoute('home');
         }
+
         $user = new User();
 
         $form = $this->createForm(UserType::class, $user);
