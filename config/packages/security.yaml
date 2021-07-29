@@ -21,6 +21,8 @@ security:
             form_login:
                 login_path: login
                 check_path: login
+                default_target_path: profile
+                always_use_default_target_path: true
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
