@@ -4,6 +4,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Form\Type\UserType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -18,14 +19,23 @@ class UserController extends AbstractController
     public function newUser(Request $request): Response
     {
         $user = new User();
-        $user->setEmail('Entrez votre adresse mail');
-        $user->setPassword('*****');
-        $user->setUsername('Entre votre nom d\'utilisateur');
 
-        $form = $this->createForm();
+        $form = $this->createForm(UserType::class, $user);
 
-        return $this->render('home/index.html.twig', [
-            'number' => 200,
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()){
+            $user = $form->getData();
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($user);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('user_success');
+        }
+
+        return $this->render('security/register.html.twig', [
+            'form' => $form->createView(),
         ]);
     }
 }
