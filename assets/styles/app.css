@@ -152,6 +152,10 @@ audio {
     display: none;
 }
 
+.text-right {
+    text-align: right;
+}
+
 #playingnow {
     margin-top: 20px;
     color: #cb9d06;
