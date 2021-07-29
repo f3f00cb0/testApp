@@ -154,7 +154,7 @@ class HomeController extends AbstractController
     }
 
     /**
-     * @Route("/profile")
+     * @Route("/profile", name="app_profile", methods={"GET", "POST"})
      */
     public function seeUserProfil(){
         $message = "eh c'est pas la page profile";
