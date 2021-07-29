@@ -18,7 +18,7 @@ use Symfony\Component\HttpFoundation\Response;
 class UserController extends AbstractController
 {
     /**
-     * @Route("/register", name="register", methods={"GET", "POST"})
+     * @Route("/inscription", name="register", methods={"GET", "POST"})
      * @param Request $request
      * @return Response
      */
