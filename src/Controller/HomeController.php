@@ -17,7 +17,7 @@ use App\Form\AlbumType;
 class HomeController extends AbstractController
 {
   /**
-  * @Route("/")
+  * @Route("/", name="home")
   */
   public function home()
   {
@@ -157,7 +157,7 @@ class HomeController extends AbstractController
      * @Route("/profile", name="app_profile", methods={"GET", "POST"})
      */
     public function seeUserProfil(){
-        $message = "eh c'est pas la page profile";
+        $message = "eh c'est la page profile";
         return $this->render('home/profile.html.twig', [
             'message' => $message
         ]);
