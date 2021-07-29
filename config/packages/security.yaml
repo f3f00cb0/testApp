@@ -11,6 +11,10 @@ security:
                 class: App\Entity\User
                 property: username
     firewalls:
+        providers:
+            users:
+                class: 'App\Entity\User'
+                property: 'username'
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
