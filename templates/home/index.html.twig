@@ -240,9 +240,9 @@
             let playingNow = songs[HMSIP];
 
             //remove all playing class
-            let songsInList = document.getElementsByClassName('playing');
-            songsInList[0].classList.remove('playing');
-            playingNow.classList.add('playing');
+            let songsInList = document.getElementsByClassName('cardplaying');
+            songsInList[0].classList.remove('cardplaying');
+            playingNow.classList.add('cardplaying');
 
             audio.load();
             audio.play();
@@ -256,9 +256,9 @@
             let playingNow = songs[previousSong];
 
             //remove all playing class
-            let songsInList = document.getElementsByClassName('playing');
-            songsInList[0].classList.remove('playing');
-            playingNow.classList.add('playing');
+            let songsInList = document.getElementsByClassName('cardplaying');
+            songsInList[0].classList.remove('cardplaying');
+            playingNow.classList.add('cardplaying');
 
             audio.load();
             audio.play();
