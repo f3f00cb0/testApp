@@ -46,7 +46,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
             FROM App\Entity\User u
             WHERE u.username = :query
             OR u.email = :query'
-        )->setParameter('query', $username[0])->getOneOrNullResult();
+        )->setParameter('query', $username['username'])->getOneOrNullResult();
     }
 
     // /**
