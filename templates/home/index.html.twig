@@ -388,19 +388,19 @@
             isMusic = target.dataset.music;
             target.classList.add('card');
             //remove all playing class
-            let songsInList = document.getElementsByClassName('card');
+            let songsInList = document.getElementsByClassName('cardplaying');
             if (target === songsInList[0]) {
                 if (songsInList[1]) {
-                    if (songsInList[1].classList.contains('card')) {
-                        songsInList[1].classList.remove('card');
+                    if (songsInList[1].classList.contains('cardplaying')) {
+                        songsInList[1].classList.remove('cardplaying');
                     }
                 }
             } else {
-                if (songsInList[0].classList.contains('card')) {
-                    songsInList[0].classList.remove('card');
+                if (songsInList[0].classList.contains('cardplaying')) {
+                    songsInList[0].classList.remove('cardplaying');
                 }
             }
-            target.classList.add('card');
+            target.classList.add('cardplaying');
         }
     }, false);
 
