@@ -386,7 +386,7 @@
         let isMusic = false;
         if (target.dataset.music) {
             isMusic = target.dataset.music;
-            target.classList.add('card');
+            target.classList.add('cardplaying');
             //remove all playing class
             let songsInList = document.getElementsByClassName('cardplaying');
             if (target === songsInList[0]) {
