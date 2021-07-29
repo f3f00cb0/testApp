@@ -25,6 +25,7 @@ class UserController extends AbstractController
      */
     public function newUser(Request $request, UserPasswordEncoderInterface $encoder): Response
     {
+        dd($this->isGranted('ROLE_USER'));
         if ($this->isGranted('ROLE_USER') == false) {
             return $this->redirectToRoute('home');
         }
