@@ -72,7 +72,7 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
 
         if (!$user) {
             // fail authentication with a custom error
-            throw new CustomUserMessageAuthenticationException('username could not be found.');
+            throw new CustomUserMessageAuthenticationException('Nom d\'utilisateur introuvable.');
         }
 
         return $user;
@@ -80,9 +80,13 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
 
     public function checkCredentials($credentials, UserInterface $user): bool
     {
-
-        /*return $this->passwordEncoder->isPasswordValid($user, $credentials['password']);*/
-        return $credentials;
+        $user = $this->entityManager->getRepository(User::class)->loadUserByUsernameAndPassword($credentials);
+        if(!$user) {
+            // fail authentication with a custom error
+            throw new CustomUserMessageAuthenticationException('Mauvais mot de passe.');
+        } else {
+            return true;
+        }
     }
 
     /**

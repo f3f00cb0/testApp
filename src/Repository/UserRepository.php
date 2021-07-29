@@ -48,6 +48,19 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         )->setParameter('query', $username['username'])->getOneOrNullResult();
     }
 
+    public function loadUserByUsernameAndPassword($credentials)
+    {
+        $entityManager = $this->getEntityManager();
+
+
+        return $entityManager->createQuery(
+            'SELECT u
+            FROM App\Entity\User u
+            WHERE u.username = :query
+            AND u.password = :querypass'
+        )->setParameter(array('query' => $credentials['username'], 'querypass' => $credentials['password']))->getOneOrNullResult();
+    }
+
     // /**
     //  * @return User[] Returns an array of User objects
     //  */
