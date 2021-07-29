@@ -44,4 +44,17 @@ class UserController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
+    /**
+     * @Route("/usersuccess", name="user_success", methods={"GET", "POST"})
+     * @param Request $request
+     * @return Response
+     */
+    public function userSuccess(Request $request): Response
+    {
+        $message = "bravo jeune";
+        return $this->render('security/success.html.twig', [
+            'message' => $message,
+        ]);
+    }
 }
