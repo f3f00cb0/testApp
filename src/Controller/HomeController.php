@@ -152,4 +152,14 @@ class HomeController extends AbstractController
             'message' => $message
         ]);
     }
+
+    /**
+     * @Route("/profile")
+     */
+    public function seeUserProfil(){
+        $message = "eh c'est pas la page profile";
+        return $this->render('home/profile.html.twig', [
+            'message' => $message
+        ]);
+    }
 }
