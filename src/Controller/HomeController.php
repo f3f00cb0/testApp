@@ -11,7 +11,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\Titre;
 use App\Service\AddContent;
 use App\Entity\Album;
-use App\Form\AlbumType;
+use App\Form\Type\AlbumType;
 
 
 class HomeController extends AbstractController
@@ -132,7 +132,7 @@ class HomeController extends AbstractController
     /**
      * @Route("/ajout")
      */
-    public function AjoutArtiste(AddContent $addContent){
+    public function Ajout(AddContent $addContent){
         $message = 'not';
         $request = Request::createFromGlobals();
         $context = $request->request->get('context');
