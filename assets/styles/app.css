@@ -75,6 +75,9 @@ body {
     padding-top: 1rem;
 }
 
+.label {
+    color: white;
+}
 
 li {
     font-size: 1.5em;
