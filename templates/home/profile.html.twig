@@ -35,9 +35,7 @@
     <div class="container is-fluid">
         <div class="columns is-mobile">
             <div class="column is-12">
-                {% for key in user_songs %}
-                    <li class="song" data-music="yes" onclick="readSong('{{ key }}')">{{ key | trim('.mp3') }}</li>
-                {% endfor %}
+
             </div>
         </div>
     </div>
@@ -166,9 +164,7 @@
 
 <script>
     const musics = [];
-    {% for key in user_songs %}
-    musics.push('{{ key }}');
-    {% endfor %}
+
     const songs = document.getElementsByClassName('song');
     // How Many Songs In Playlist
     let HMSIP = musics.length - 1;
