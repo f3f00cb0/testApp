@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit UsersSongs{% endblock %}
+
+{% block body %}
+    <h1>Edit UsersSongs</h1>
+
+    {{ include('users_songs/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('users_songs_index') }}">back to list</a>
+
+    {{ include('users_songs/_delete_form.html.twig') }}
+{% endblock %}

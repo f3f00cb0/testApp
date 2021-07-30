@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}UsersSongs{% endblock %}
+
+{% block body %}
+    <h1>UsersSongs</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ users_song.id }}</td>
+            </tr>
+            <tr>
+                <th>Song</th>
+                <td>{{ users_song.song }}</td>
+            </tr>
+            <tr>
+                <th>User</th>
+                <td>{{ users_song.user }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('users_songs_index') }}">back to list</a>
+
+    <a href="{{ path('users_songs_edit', {'id': users_song.id}) }}">edit</a>
+
+    {{ include('users_songs/_delete_form.html.twig') }}
+{% endblock %}
