@@ -175,7 +175,7 @@ class HomeController extends AbstractController
         $user = $this->token->getToken()->getUser();
         $userId = $user->getId();
         /** UsersSongsRepository $usersSongRepository */
-        $usersSongs = $usersSongsRepository->findBy(['user' => $userId]);
+        $usersSongs = $usersSongsRepository->findBy(['user' => $userId], ['id' => 'DESC']);
         $message = "eh c'est la page profile";
         return $this->render('home/profile.html.twig', [
             'message' => $message,
