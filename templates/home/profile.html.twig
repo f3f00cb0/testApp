@@ -36,7 +36,7 @@
         <div class="columns is-mobile">
             <div class="column is-12">
                 {% for key in user_songs %}
-                    <li class="song" data-music="yes" onclick="readSong('{{ key.song }}')">{{ key.songname }}</li>
+                    <li class="song" data-music="yes" onclick="readSong('/userssongs/{{ user_id }}/{{ key.song }}')">{{ key.songname }}</li>
                 {% endfor %}
             </div>
         </div>
