@@ -1,6 +1,10 @@
+html {
+    height: 100%;
+}
 body {
     background-color: #191c29;
     color: white;
+    height: 100%;
 }
 
 
