@@ -166,6 +166,10 @@ audio {
     display: none;
 }
 
+.push {
+    margin-left: auto;
+}
+
 .text-left {
     text-align: left;
 }
