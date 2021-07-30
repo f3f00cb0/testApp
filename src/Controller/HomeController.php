@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\UsersSongsRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -12,103 +13,115 @@ use App\Entity\Titre;
 use App\Service\AddContent;
 use App\Entity\Album;
 use App\Form\Type\AlbumType;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
 
 class HomeController extends AbstractController
 {
-  /**
-  * @Route("/", name="home")
-  */
-  public function home()
-  {
-      $number = 15;
+    private $token;
 
-      $message = "Hello";
+    public function __construct(TokenStorageInterface $token)
+    {
+        $this->token = $token;
+    }
 
-      $directory = '/home/ubuntu/App/public';
-      $scanned_directory = array_diff(scandir($directory), array('..', '.'));
-      $files = [];
-      foreach ($scanned_directory as $temp_filename){
-        if(str_ends_with($temp_filename, '.mp3')){
-          $files[] = $temp_filename;
-        }
-      }
-
-      //var_dump($files);
-
-      /*
-      $finder = new Finder();
-      // find all files in the current directory
-      $finder->in('src/Controller/music');
-
-      foreach ($finder as $file) {
-        $absoluteFilePath = var_dump($file->getRealPath());
-        $fileNameWithExtension = $file->getRelativePathname();
-    
-        // ...
-      }
-      */
-
-      return $this->render('home/index.html.twig', [
-        'number' => $number,
-        'message' => $message,
-        'files' => $files
-      ]);
-  }
-
-
-  /**
-   * @Route("/affiches")
-   */
-  public function ShowAffichesDev(){
-    $message = 'Affiches';
-    return $this->render('affiches/index.html.twig', [
-      'message' => $message
-    ]);
-  }
-
-  /**
-   * @Route("/ajoutMusique")
-   */
-  public function AjoutMusique(){
-      $em = $this->getDoctrine()->getManager();
-      $message = 'not';
-      $request = Request::createFromGlobals();
-      $nomTitre = $request->request->get('name');
-      $artisteTitre = $request->request->get('artiste');
-      $albumTitre = $request->request->get('album');
-      $pathTitre = $nomTitre.'.mp3';
-      $titres = $this->getDoctrine()->getRepository(Titre::class)->findAll();
-      dump($titres);
-      if ($nomTitre !== null && $artisteTitre !== null && $albumTitre !== null) {
-          $titre = new Titre();
-          $titre->setNom($nomTitre);
-          $titre->setPath($pathTitre);
-          $titre->setArtiste(1);
-          $titre->setAlbum(1);
-          $em->persist($titre);
-          $em->flush();
-          $message = 'ok';
-      }
-
-      return $this->render('home/ajoutmusique.html.twig', [
-          'titres' => $titres,
-          'message' => $message,
-          'id' => $nomTitre
-      ]);
-  }
 
     /**
-     * @Route("/ajoutAlbum")
+     * @Route("/", name="home")
      */
-    public function AjoutAlbum(){
+    public function home(): Response
+    {
+        $number = 15;
+
+        $message = "Hello";
+
+        $directory = '/home/ubuntu/App/public';
+        $scanned_directory = array_diff(scandir($directory), array('..', '.'));
+        $files = [];
+        foreach ($scanned_directory as $temp_filename) {
+            if (str_ends_with($temp_filename, '.mp3')) {
+                $files[] = $temp_filename;
+            }
+        }
+
+        //var_dump($files);
+
+        /*
+        $finder = new Finder();
+        // find all files in the current directory
+        $finder->in('src/Controller/music');
+
+        foreach ($finder as $file) {
+          $absoluteFilePath = var_dump($file->getRealPath());
+          $fileNameWithExtension = $file->getRelativePathname();
+
+          // ...
+        }
+        */
+
+        return $this->render('home/index.html.twig', [
+            'number' => $number,
+            'message' => $message,
+            'files' => $files
+        ]);
+    }
+
+
+    /**
+     * @Route("/affiches")
+     */
+    public function ShowAffichesDev(): Response
+    {
+        $message = 'Affiches';
+        return $this->render('affiches/index.html.twig', [
+            'message' => $message
+        ]);
+    }
+
+    /**
+     * @Route("/ajoutMusique")
+     */
+    public function AjoutMusique(): Response
+    {
         $em = $this->getDoctrine()->getManager();
         $message = 'not';
         $request = Request::createFromGlobals();
         $nomTitre = $request->request->get('name');
         $artisteTitre = $request->request->get('artiste');
         $albumTitre = $request->request->get('album');
-        $pathTitre = $nomTitre.'.mp3';
+        $pathTitre = $nomTitre . '.mp3';
+        $titres = $this->getDoctrine()->getRepository(Titre::class)->findAll();
+        dump($titres);
+        if ($nomTitre !== null && $artisteTitre !== null && $albumTitre !== null) {
+            $titre = new Titre();
+            $titre->setNom($nomTitre);
+            $titre->setPath($pathTitre);
+            $titre->setArtiste(1);
+            $titre->setAlbum(1);
+            $em->persist($titre);
+            $em->flush();
+            $message = 'ok';
+        }
+
+        return $this->render('home/ajoutmusique.html.twig', [
+            'titres' => $titres,
+            'message' => $message,
+            'id' => $nomTitre
+        ]);
+    }
+
+    /**
+     * @Route("/ajoutAlbum")
+     */
+    public function AjoutAlbum(): Response
+    {
+        $em = $this->getDoctrine()->getManager();
+        $message = 'not';
+        $request = Request::createFromGlobals();
+        $nomTitre = $request->request->get('name');
+        $artisteTitre = $request->request->get('artiste');
+        $albumTitre = $request->request->get('album');
+        $pathTitre = $nomTitre . '.mp3';
         $titres = $this->getDoctrine()->getRepository(Titre::class)->findAll();
         dump($titres);
         if ($nomTitre !== null && $artisteTitre !== null && $albumTitre !== null) {
@@ -132,7 +145,8 @@ class HomeController extends AbstractController
     /**
      * @Route("/ajout")
      */
-    public function Ajout(AddContent $addContent){
+    public function Ajout(AddContent $addContent): Response
+    {
         $message = 'not';
         $request = Request::createFromGlobals();
         $context = $request->request->get('context');
@@ -142,7 +156,7 @@ class HomeController extends AbstractController
         $album = new Album();
         $formAlbum = $this->createForm(AlbumType::class, $album);
 
-        if ($formAlbum->isSubmitted() && $formAlbum->isValid()){
+        if ($formAlbum->isSubmitted() && $formAlbum->isValid()) {
 
         }
 
@@ -156,10 +170,17 @@ class HomeController extends AbstractController
     /**
      * @Route("/profile", name="profile", methods={"GET", "POST"})
      */
-    public function seeUserProfil(){
+    public function seeUserProfil(): Response
+    {
+        $user = $this->token->getToken()->getUser();
+        $userId = $user->getId();
+        /** UsersSongsRepository $usersSongRepository */
+        $usersSongsRepository = new UsersSongsRepository();
+        $usersSongs = $usersSongsRepository->findBy(['user' => $userId]);
         $message = "eh c'est la page profile";
         return $this->render('home/profile.html.twig', [
-            'message' => $message
+            'message' => $message,
+            'user_songs' => $usersSongs
         ]);
     }
 }
