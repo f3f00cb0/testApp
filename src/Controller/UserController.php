@@ -49,10 +49,6 @@ class UserController extends AbstractController
             return $this->redirectToRoute('user_success');
         }
 
-        if($form->isSubmitted() && !$form->isValid()){
-          dd('e');
-        }
-
         return $this->render('security/register.html.twig', [
             'form' => $form->createView(),
         ]);
