@@ -10,6 +10,7 @@
             <tr>
                 <th>Id</th>
                 <th>Song</th>
+                <th>Song Title</th>
             </tr>
         </thead>
         <tbody>
@@ -17,6 +18,7 @@
             <tr>
                 <td>{{ users_song.id }}</td>
                 <td>{{ users_song.song }}</td>
+                <td>{{ users_song.songname }}</td>
             </tr>
         {% else %}
             <tr>
@@ -37,6 +39,7 @@
             <tr>
                 <th>Id</th>
                 <th>Song</th>
+                <th>Song Title</th>
                 <th>User</th>
             </tr>
             </thead>
@@ -45,6 +48,7 @@
                 <tr>
                     <td>{{ all_users_song.id }}</td>
                     <td>{{ all_users_song.song }}</td>
+                    <td>{{ all_users_song.songname }}</td>
                     <td>{{ all_users_song.user }}</td>
                 </tr>
             {% else %}
