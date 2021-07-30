@@ -3,13 +3,13 @@
 {% block title %}UsersSongs index{% endblock %}
 
 {% block body %}
-    <h1>UsersSongs index</h1>
+    <h1>Ma musique</h1>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Song</th>
-                <th>Song Title</th>
+                <th>Fichier</th>
+                <th>Titre</th>
             </tr>
         </thead>
         <tbody>
@@ -26,33 +26,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('users_songs_new') }}">Create new</a>
-
-    <br>
-    <div>
-        <h1>AllSongs index</h1>
-
-        <table class="table">
-            <thead>
-            <tr>
-                <th>Song</th>
-                <th>Song Title</th>
-                <th>User</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for all_users_song in all_users_songs %}
-                <tr>
-                    <td>{{ all_users_song.song }}</td>
-                    <td>{{ all_users_song.songname }}</td>
-                    <td>{{ all_users_song.user }}</td>
-                </tr>
-            {% else %}
-                <tr>
-                    <td colspan="4">no records found</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-    </div>
+    <a href="{{ path('users_songs_new') }}">Ajouter une musique</a>
 {% endblock %}
