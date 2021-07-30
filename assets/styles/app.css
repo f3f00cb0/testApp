@@ -6,8 +6,11 @@ body {
     color: white;
     height: 100%;
 }
-a:hover {
+a {
     color: #cb9d06;
+}
+a:hover {
+    color: #3273dc;
 }
 
 
