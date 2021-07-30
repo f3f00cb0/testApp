@@ -170,12 +170,11 @@ class HomeController extends AbstractController
     /**
      * @Route("/profile", name="profile", methods={"GET", "POST"})
      */
-    public function seeUserProfil(): Response
+    public function seeUserProfil(UsersSongsRepository $usersSongsRepository): Response
     {
         $user = $this->token->getToken()->getUser();
         $userId = $user->getId();
         /** UsersSongsRepository $usersSongRepository */
-        $usersSongsRepository = new UsersSongsRepository();
         $usersSongs = $usersSongsRepository->findBy(['user' => $userId]);
         $message = "eh c'est la page profile";
         return $this->render('home/profile.html.twig', [
