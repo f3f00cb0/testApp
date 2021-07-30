@@ -25,27 +25,32 @@
 <body>
 <div class="container is-fluid">
     <section id="header">
-        <div class="columns paddingtop1">
-            <div class="column is-5">
-                <form action="{{ path('register') }}" method="post">
-                    <label class="label" for="username">Nom d'utilisateur:</label>
-                    <input type="text" id="username" class="input" name="_username" value=""/>
-
-                    <label class="label" for="password">Mot de passe:</label>
-                    <input type="password" id="password" class="input" name="_password"/>
-                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-
-                    {#
-                    If you want to control the URL the user
-                    is redirected to on success (more details below)
-                    <input type="hidden" name="_target_path" value="/account"/>
-                    #}
-
-                    <button class="button margin-top1" type="submit">inscription</button>
-                </form>
-            </div>
+        <div id="menu" class="text-right">
+            <a href="/login">Se connecter</a>
         </div>
     </section>
+</div>
+<div class="container is-fluid">
+    <div class="columns paddingtop1">
+        <div class="column is-5">
+            <form action="{{ path('register') }}" method="post">
+                <label class="label" for="username">Nom d'utilisateur:</label>
+                <input type="text" id="username" class="input" name="_username" value=""/>
+
+                <label class="label" for="password">Mot de passe:</label>
+                <input type="password" id="password" class="input" name="_password"/>
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+                {#
+                If you want to control the URL the user
+                is redirected to on success (more details below)
+                <input type="hidden" name="_target_path" value="/account"/>
+                #}
+
+                <button class="button margin-top1" type="submit">inscription</button>
+            </form>
+        </div>
+    </div>
 </div>
 </body>
 </html>
