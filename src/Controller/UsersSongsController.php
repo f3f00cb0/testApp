@@ -56,7 +56,7 @@ class UsersSongsController extends AbstractController
 
             try {
                 $file->move(
-                    $this->getParameter('brochures_directory'),
+                    'userssongs',
                     $newFilename
                 );
             } catch (FileException $e) {
