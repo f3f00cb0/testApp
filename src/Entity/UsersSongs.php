@@ -23,6 +23,11 @@ class UsersSongs
     private $song;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $songname;
+
+    /**
      * @ORM\Column(type="integer")
      */
     private $user;
