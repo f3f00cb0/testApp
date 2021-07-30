@@ -14,8 +14,12 @@ class UsersSongsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('song', FileType::class)
-            ->add('songname', TextType::class)
+            ->add('song', FileType::class, [
+              'label' => 'Fichier .mp3'
+            ])
+            ->add('songname', TextType::class, [
+              'label' => 'Titre de la musique'
+            ])
         ;
     }
 
