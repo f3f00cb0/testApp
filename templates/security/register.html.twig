@@ -37,11 +37,11 @@
     <div class="columns paddingtop1">
         <div class="column is-half is-offset-one-quarter">
             <form action="{{ path('register') }}" method="post">
-                <label class="label" for="username">Nom d'utilisateur:</label>
-                <input type="text" id="username" class="input" name="_username" value=""/>
+                <label class="label" for="_username">Nom d'utilisateur:</label>
+                <input type="text" id="_username" class="input" name="_username" value=""/>
 
-                <label class="label" for="password">Mot de passe:</label>
-                <input type="password" id="password" class="input" name="_password"/>
+                <label class="label" for="_password">Mot de passe:</label>
+                <input type="password" id="_password" class="input" name="_password"/>
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
                 {#
