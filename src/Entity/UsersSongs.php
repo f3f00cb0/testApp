@@ -64,4 +64,20 @@ class UsersSongs
     public function setId()
     {
     }
+
+    /**
+     * @return mixed
+     */
+    public function getSongname()
+    {
+        return $this->songname;
+    }
+
+    /**
+     * @param mixed $songname
+     */
+    public function setSongname($songname): void
+    {
+        $this->songname = $songname;
+    }
 }

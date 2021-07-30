@@ -15,6 +15,7 @@ class UsersSongsType extends AbstractType
     {
         $builder
             ->add('song', FileType::class)
+            ->add('songname', TextType::class)
         ;
     }
 
