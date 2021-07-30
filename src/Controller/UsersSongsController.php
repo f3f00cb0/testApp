@@ -10,12 +10,22 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
 /**
  * @Route("/users/songs")
  */
 class UsersSongsController extends AbstractController
 {
+
+    private $token;
+
+    public function __construct(TokenStorageInterface $token)
+    {
+        $this->token = $token;
+    }
+
+
     /**
      * @Route("/", name="users_songs_index", methods={"GET"})
      */
@@ -38,6 +48,7 @@ class UsersSongsController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $file = $form['song']->getData();
             $file->move('public', $file->getClientOriginalName());
+            $usersSong->setUser($this->token->getToken()->getUser());
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($usersSong);
             $entityManager->flush();

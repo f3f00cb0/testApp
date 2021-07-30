@@ -55,4 +55,8 @@ class UsersSongs
 
         return $this;
     }
+
+    public function setId()
+    {
+    }
 }
