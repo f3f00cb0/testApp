@@ -27,9 +27,9 @@
     <div class="columns paddingtop1">
         <div class="column is-half is-offset-one-quarter">
             <form action="{{ path('app_login') }}" method="post">
-                <label class="label" for="username">Username:</label>
+                <label class="label" for="username">Nom d'utilisateur:</label>
                 <input class="input" type="text" id="username" name="_username" value="{{ last_username }}"/>
-                <label class="label" for="password">Password:</label>
+                <label class="label" for="password">Mot de passe:</label>
                 <input class="input" type="password" id="password" name="_password"/>
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
                 {#

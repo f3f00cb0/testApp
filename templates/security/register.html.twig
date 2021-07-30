@@ -28,10 +28,10 @@
         <div class="columns paddingtop1">
             <div class="column is-5">
                 <form action="{{ path('register') }}" method="post">
-                    <label class="label" for="username">Username:</label>
+                    <label class="label" for="username">Nom d'utilisateur:</label>
                     <input type="text" id="username" class="input" name="_username" value=""/>
 
-                    <label class="label" for="password">Password:</label>
+                    <label class="label" for="password">Mot de passe:</label>
                     <input type="password" id="password" class="input" name="_password"/>
                     <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
