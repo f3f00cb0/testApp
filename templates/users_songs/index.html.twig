@@ -37,7 +37,7 @@
 
     <br>
     <div>
-        <h1>UsersSongs index</h1>
+        <h1>AllSongs index</h1>
 
         <table class="table">
             <thead>
@@ -54,10 +54,6 @@
                     <td>{{ all_users_song.id }}</td>
                     <td>{{ all_users_song.song }}</td>
                     <td>{{ all_users_song.user }}</td>
-                    <td>
-                        <a href="{{ path('users_songs_show', {'id': all_users_song.id}) }}">show</a>
-                        <a href="{{ path('users_songs_edit', {'id': all_users_song.id}) }}">edit</a>
-                    </td>
                 </tr>
             {% else %}
                 <tr>
