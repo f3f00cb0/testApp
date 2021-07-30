@@ -8,7 +8,6 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Song</th>
                 <th>Song Title</th>
             </tr>
@@ -16,7 +15,6 @@
         <tbody>
         {% for users_song in users_songs %}
             <tr>
-                <td>{{ users_song.id }}</td>
                 <td>{{ users_song.song }}</td>
                 <td>{{ users_song.songname }}</td>
             </tr>
@@ -37,7 +35,6 @@
         <table class="table">
             <thead>
             <tr>
-                <th>Id</th>
                 <th>Song</th>
                 <th>Song Title</th>
                 <th>User</th>
@@ -46,7 +43,6 @@
             <tbody>
             {% for all_users_song in all_users_songs %}
                 <tr>
-                    <td>{{ all_users_song.id }}</td>
                     <td>{{ all_users_song.song }}</td>
                     <td>{{ all_users_song.songname }}</td>
                     <td>{{ all_users_song.user }}</td>
