@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
 use App\Entity\UsersSongs;
 use App\Form\UsersSongsType;
 use App\Repository\UsersSongsRepository;
@@ -48,7 +49,9 @@ class UsersSongsController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $file = $form['song']->getData();
             $file->move('public', $file->getClientOriginalName());
-            $usersSong->setUser($this->token->getToken()->getUser());
+            $user = $this->token->getToken()->getUser();
+            $userId = $user->getId();
+            $usersSong->setUser($userId);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($usersSong);
             $entityManager->flush();
