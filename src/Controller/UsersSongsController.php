@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 /**
  * @Route("/users/songs")
@@ -40,7 +41,7 @@ class UsersSongsController extends AbstractController
     /**
      * @Route("/new", name="users_songs_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, SluggerInterface $slugger): Response
     {
         $usersSong = new UsersSongs();
         $form = $this->createForm(UsersSongsType::class, $usersSong);
@@ -48,10 +49,24 @@ class UsersSongsController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $file = $form['song']->getData();
-            $file->move('public', $file->getClientOriginalName());
+
+            $originalFilename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+            $safeFilename = $slugger->slug($originalFilename);
+            $newFilename = $safeFilename.'-'.uniqid().'.'.$file->guessExtension();
+
+            try {
+                $file->move(
+                    $this->getParameter('brochures_directory'),
+                    $newFilename
+                );
+            } catch (FileException $e) {
+                // ... handle exception if something happens during file upload
+            }
             $user = $this->token->getToken()->getUser();
             $userId = $user->getId();
             $usersSong->setUser($userId);
+            $usersSong->setSong($newFilename);
+            /*$file->move('userssong', $file->getClientOriginalName());*/
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($usersSong);
             $entityManager->flush();
