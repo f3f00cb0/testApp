@@ -33,8 +33,10 @@ class UsersSongsController extends AbstractController
      */
     public function index(UsersSongsRepository $usersSongsRepository): Response
     {
+        $user = $this->token->getToken()->getUser();
+        $userId = $user->getId();
         return $this->render('users_songs/index.html.twig', [
-            'users_songs' => $usersSongsRepository->findAll(),
+            'users_songs' => $usersSongsRepository->findBy(['user' => $userId]),
         ]);
     }
 
