@@ -167,7 +167,7 @@
 <script>
     const musics = [];
     {% for key in user_songs %}
-    musics.push('{{ key.song }}');
+    musics.push('/userssongs/{{ user_id }}/{{ key.song }}');
     {% endfor %}
     const songs = document.getElementsByClassName('song');
     // How Many Songs In Playlist

@@ -179,6 +179,7 @@ class HomeController extends AbstractController
         $message = "eh c'est la page profile";
         return $this->render('home/profile.html.twig', [
             'message' => $message,
+            'user_id' => $userId,
             'user_songs' => $usersSongs
         ]);
     }
