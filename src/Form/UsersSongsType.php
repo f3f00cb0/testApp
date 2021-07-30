@@ -15,10 +15,12 @@ class UsersSongsType extends AbstractType
     {
         $builder
             ->add('song', FileType::class, [
-              'label' => 'Fichier .mp3'
+              'label' => 'Fichier .mp3',
+              'class' => 'input'
             ])
             ->add('songname', TextType::class, [
-              'label' => 'Titre de la musique'
+              'label' => 'Titre de la musique',
+              'class' => 'input'
             ])
         ;
     }
