@@ -3,31 +3,36 @@
 {% block title %}UsersSongs index{% endblock %}
 
 {% block body %}
-    <div class="container">
-        <h1>Ma musique</h1>
+    <div class="container is-fluid">
+        <div class="columns paddingtop1">
+            <div class="column is-half is-offset-one-quarter">
+                <h1>Ma musique</h1>
 
-        <table class="table">
-            <thead>
-            <tr>
-                <th>Fichier</th>
-                <th>Titre</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for users_song in users_songs %}
-                <tr>
-                    <td>{{ users_song.song }}</td>
-                    <td>{{ users_song.songname }}</td>
-                </tr>
-            {% else %}
-                <tr>
-                    <td colspan="4">no records found</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-        <a href="{{ path('users_songs_new') }}">Ajouter une musique</a>
-        <a href="{{ path('profile') }}">Retour au profil</a>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Fichier</th>
+                        <th>Titre</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for users_song in users_songs %}
+                        <tr>
+                            <td>{{ users_song.song }}</td>
+                            <td>{{ users_song.songname }}</td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="4">no records found</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                <a href="{{ path('users_songs_new') }}">Ajouter une musique</a>
+                <a href="{{ path('profile') }}">Retour au profil</a>
+
+            </div>
+        </div>
     </div>
 
 

@@ -4,11 +4,15 @@
 
 {% block body %}
     <div class="container">
-        <h1>Ajouter une musique</h1>
+        <div class="columns paddingtop1">
+            <div class="column is-half is-offset-one-quarter">
+                <h1>Ajouter une musique</h1>
 
-        {{ include('users_songs/_form.html.twig') }}
+                {{ include('users_songs/_form.html.twig') }}
 
-        <a href="{{ path('users_songs_index') }}">retour à la liste</a>
+                <a href="{{ path('users_songs_index') }}">retour à la liste</a>
+            </div>
+        </div>
     </div>
 
 {% endblock %}
