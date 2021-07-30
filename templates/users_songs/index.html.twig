@@ -34,4 +34,37 @@
     </table>
 
     <a href="{{ path('users_songs_new') }}">Create new</a>
+
+    <br>
+    <div>
+        <h1>UsersSongs index</h1>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Song</th>
+                <th>User</th>
+                <th>actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for all_users_song in all_users_songs %}
+                <tr>
+                    <td>{{ all_users_song.id }}</td>
+                    <td>{{ all_users_song.song }}</td>
+                    <td>{{ all_users_song.user }}</td>
+                    <td>
+                        <a href="{{ path('users_songs_show', {'id': all_users_song.id}) }}">show</a>
+                        <a href="{{ path('users_songs_edit', {'id': all_users_song.id}) }}">edit</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="4">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock %}

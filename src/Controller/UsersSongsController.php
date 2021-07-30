@@ -37,6 +37,7 @@ class UsersSongsController extends AbstractController
         $userId = $user->getId();
         return $this->render('users_songs/index.html.twig', [
             'users_songs' => $usersSongsRepository->findBy(['user' => $userId]),
+            'all_users_songs' => $usersSongsRepository->findAll()
         ]);
     }
 
