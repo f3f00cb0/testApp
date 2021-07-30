@@ -6,6 +6,9 @@ body {
     color: white;
     height: 100%;
 }
+a:hover {
+    color: #cb9d06;
+}
 
 
 /*   CARD   */
