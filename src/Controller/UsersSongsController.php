@@ -51,6 +51,8 @@ class UsersSongsController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $user = $this->token->getToken()->getUser();
+            $userId = $user->getId();
             $file = $form['song']->getData();
 
             $originalFilename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
@@ -59,14 +61,13 @@ class UsersSongsController extends AbstractController
 
             try {
                 $file->move(
-                    'userssongs',
+                    'userssongs/'.$userId,
                     $newFilename
                 );
             } catch (FileException $e) {
                 // ... handle exception if something happens during file upload
             }
-            $user = $this->token->getToken()->getUser();
-            $userId = $user->getId();
+
             $usersSong->setUser($userId);
             $usersSong->setSong($newFilename);
             /*$file->move('userssong', $file->getClientOriginalName());*/
