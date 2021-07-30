@@ -41,6 +41,7 @@ class UserController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
 
             $user->setPassword($encoder->encodePassword($user, $form->get('_password')->getData()));
+            dd($form->get('_password')->getData());
             $entityManager->persist($user);
             $entityManager->flush();
 
