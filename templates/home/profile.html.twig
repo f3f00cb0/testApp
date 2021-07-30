@@ -209,7 +209,9 @@
                 source.src = musics[i];
                 audio.load();
                 actualyPlaying = musics[i];
-                playingNow.innerText = actualyPlaying.slice(0, -4);
+                let songsInList = document.getElementsByClassName('cardplaying');
+
+                playingNow.innerText = songsInList[0].innerText;
                 togglePlayPause();
             }
         }
