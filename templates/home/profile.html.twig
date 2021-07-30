@@ -166,8 +166,12 @@
 
 <script>
     const musics = [];
+    const songsname = [];
     {% for key in user_songs %}
     musics.push('/userssongs/{{ user_id }}/{{ key.song }}');
+    {% endfor %}
+    {% for key in user_songs %}
+    songsname.push('{{ key.songname }}');
     {% endfor %}
     const songs = document.getElementsByClassName('song');
     // How Many Songs In Playlist
@@ -209,9 +213,7 @@
                 source.src = musics[i];
                 audio.load();
                 actualyPlaying = musics[i];
-                let songsInList = document.getElementsByClassName('cardplaying');
-
-                playingNow.innerText = songsInList[0].innerText;
+                playingNow.innerText = songsname[i];
                 togglePlayPause();
             }
         }
