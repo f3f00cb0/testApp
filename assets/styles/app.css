@@ -78,6 +78,10 @@ body {
     padding-top: 1rem;
 }
 
+.margin-top1 {
+    margin-top: 1rem;
+}
+
 .label {
     color: white;
 }
