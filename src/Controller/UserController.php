@@ -47,6 +47,8 @@ class UserController extends AbstractController
             $entityManager->flush();
 
             return $this->redirectToRoute('user_success');
+        } else {
+          dump($form->getData());
         }
 
         return $this->render('security/register.html.twig', [
