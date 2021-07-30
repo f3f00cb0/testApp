@@ -18,7 +18,7 @@ class UsersSongs
     private $id;
 
     /**
-     * @ORM\Column(type="object", length=255)
+     * @ORM\Column(type="string", length=255)
      */
     private $song;
 
