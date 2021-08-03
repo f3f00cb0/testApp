@@ -116,7 +116,7 @@ li {
     width: 90px;
 }
 
-.backward, .play, .forward, .pause, .repeat {
+.backward, .play, .forward, .pause, .repeat, .shuffle {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -126,7 +126,7 @@ li {
     margin-top: 20px;
 }
 
-.backward, .forward {
+.backward, .forward, .shuffle {
     padding-top: 20px;
 }
 
@@ -134,7 +134,7 @@ li {
     display: none;
 }
 
-#backwardbutton, #forwardbutton, #repeatbutton {
+#backwardbutton, #forwardbutton, #repeatbutton, #shufflebutton {
     height: 60px;
     width: 60px;
 }
