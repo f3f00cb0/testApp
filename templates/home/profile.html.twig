@@ -186,7 +186,11 @@
     source.src = musics[MPIP];
     audio.load();
     actualyPlaying = songsname[MPIP];
-    playingNow.innerText = actualyPlaying;
+     if(actualyPlaying === undefined){
+        playingNow.innerText = 'Aucune musique dans la liste';
+    } else {
+        playingNow.innerText = actualyPlaying;
+    }
     let repeat = false;
     let repeatButton = document.getElementById('repeatbutton');
     let repeatButtonTop = document.getElementById('repeatButtonTop');
@@ -213,7 +217,9 @@
                 source.src = musics[i];
                 audio.load();
                 actualyPlaying = musics[i];
-                playingNow.innerText = songsname[i];
+                 
+                playingNow.innerText = actualyPlaying;
+                
                 togglePlayPause();
             }
         }

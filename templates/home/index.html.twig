@@ -19,7 +19,14 @@
         See note below about the "defer" attribute -->
     {% endblock %}
     <style>
-
+        body, html {
+            height: fit-content;
+        }
+        {% if files | length > 15 %}
+        #controlsApp {
+            position: sticky;
+        }
+        {% endif %}
     </style>
 </head>
 <body>
@@ -213,7 +220,11 @@
     source.src = musics[MPIP];
     audio.load();
     actualyPlaying = musics[MPIP];
-    playingNow.innerText = actualyPlaying.slice(0, -4);
+     if(actualyPlaying === undefined){
+        playingNow.innerText = 'Aucune musique dans la liste';
+    } else {
+        playingNow.innerText = actualyPlaying.slice(0, -4);
+    }
     let repeat = false;
     let repeatButton = document.getElementById('repeatbutton');
     let repeatButtonTop = document.getElementById('repeatButtonTop');
@@ -240,7 +251,12 @@
                 source.src = musics[i];
                 audio.load();
                 actualyPlaying = musics[i];
-                playingNow.innerText = actualyPlaying.slice(0, -4);
+                if(actualyPlaying === undefined){
+                    playingNow.innerText = 'Aucune musique dans la liste';
+                } else {
+                    playingNow.innerText = actualyPlaying.slice(0, -4);
+                }
+                
                 togglePlayPause();
             }
         }

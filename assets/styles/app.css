@@ -187,7 +187,7 @@ audio {
 #controlsApp {
     background: #191c29;
     border-top: solid 2px black;
-    position: sticky;
+    position: fixed;
     bottom: 0;
     width: 100%;
     height: 211px;

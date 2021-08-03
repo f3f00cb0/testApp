@@ -19,7 +19,26 @@
         See note below about the "defer" attribute -->
     {% endblock %}
     <style>
-
+        html, body {
+          height: fit-content;
+          background-color: #191c29;
+          font-size: 2rem;
+        }
+        .input, .button {
+          background-color: #464953;
+          color: #cb9d06;
+          border-color: unset;
+        }
+        .label {
+          color: #cb9d06;
+        }
+        .button:hover {
+          color: #191c29;
+        }
+        .container .columns .column {
+          margin: 30px;
+          padding: 0px;
+        }
     </style>
 </head>
 <body>
@@ -33,6 +52,30 @@
         </div>
     </section>
 </div>
+
+<div class="container is-fluid">
+    <div class="columns is-desktop">
+        <form action="{{ path('app_login') }}" method="post">
+            <div class="column">
+                <label for="username" class="label">Nom d'utilisateur</label>
+                <input class="input" name="_username" type="text">
+            </div>
+            <div class="column">
+                <label for="username" class="label">Mot de passe</label>
+                <input class="input" name="_password" type="text">
+            </div>
+            <div class="column">
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                <button class="button" type="submit">Connexion</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+{#OLD
 <div class="container is-fluid">
     <div class="columns paddingtop1">
         <div class="column is-half is-offset-one-quarter">
@@ -46,13 +89,13 @@
                 If you want to control the URL the user
                    is redirected to on success (more details below)
                    <input type="hidden" name="_target_path" value="/account"/>
-                #}
+                
                 <button class="button margin-top1" type="submit">Connexion</button>
             </form>
         </div>
     </div>
 </div>
-
+#}
 {% if error %}
     <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 {% endif %}

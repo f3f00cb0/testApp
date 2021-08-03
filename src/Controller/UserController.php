@@ -31,7 +31,7 @@ class UserController extends AbstractController
 
         $user = new User();
 
-        $form = $this->createForm(UserType::class, $user);
+        $form = $this->createForm(UserType::class, $user, array('csrf_protection' => false));
 
         $form->handleRequest($request);
         dump($form->getData());
@@ -46,7 +46,7 @@ class UserController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
 
-            return $this->redirectToRoute('user_success');
+            return $this->redirectToRoute('profile');
         } else {
           dump($form->getData());
         }
@@ -64,8 +64,6 @@ class UserController extends AbstractController
     public function userSuccess(Request $request): Response
     {
         $message = "bravo jeune";
-        return $this->render('security/success.html.twig', [
-            'message' => $message,
-        ]);
+        return $this->redirectToRoute('profile');
     }
 }

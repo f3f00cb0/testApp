@@ -3,3 +3,16 @@
 <button class="button margin-top1">{{ button_label|default('Enregistrer') }}</button>
 {{ form_end(form) }}
 
+<form action="{{ path('users_songs_new') }}" method="post">
+    <div class="column">
+        <label for="username" class="label">Nom d'utilisateur</label>
+        <input class="input" name="_username" type="text">
+    </div>
+    <div class="column">
+        <label for="username" class="label">Mot de passe</label>
+        <input class="input" name="_password" type="text">
+    </div>
+    <div class="column">
+        <button class="button" type="submit">Connexion</button>
+    </div>
+</form>

@@ -19,7 +19,26 @@
         See note below about the "defer" attribute -->
     {% endblock %}
     <style>
-
+        html, body {
+          height: fit-content;
+          background-color: #191c29;
+          font-size: 2rem;
+        }
+        .input, .button {
+          background-color: #464953;
+          color: #cb9d06;
+          border-color: unset;
+        }
+        .label {
+          color: #cb9d06;
+        }
+        .button:hover {
+          color: #191c29;
+        }
+        .container .columns .column {
+          margin: 30px;
+          padding: 0px;
+        }
     </style>
 </head>
 <body>
@@ -34,6 +53,23 @@
     </section>
 </div>
 <div class="container is-fluid">
+    <div class="columns is-desktop">
+        <form name="user" method="post">
+            <div class="column">
+                <label for="username" class="label">Nom d'utilisateur</label>
+                <input class="input" name="user[username]" type="text">
+            </div>
+            <div class="column">
+                <label for="username" class="label">Mot de passe</label>
+                <input class="input" name="user[password]" type="text">
+            </div>
+            <div class="column">
+                <button class="button" type="submit">S'inscrire</button>
+            </div>
+        </form>
+    </div>
+</div>{#
+<div class="container is-fluid">
     <div class="columns paddingtop1">
         <div class="column is-half is-offset-one-quarter">
                 {{ form_start(form) }}
@@ -43,6 +79,6 @@
 
         </div>
     </div>
-</div>
+</div>#}
 </body>
 </html>
