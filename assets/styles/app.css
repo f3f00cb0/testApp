@@ -179,7 +179,6 @@ audio {
 }
 
 #playingnow {
-    margin-top: 20px;
     color: #cb9d06;
 }
 
@@ -189,7 +188,7 @@ audio {
     position: fixed;
     bottom: 0;
     width: 100%;
-    height: 230px;
+    height: 210px;
 }
 
 .column {
