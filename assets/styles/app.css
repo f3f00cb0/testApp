@@ -191,6 +191,10 @@ audio {
     height: 210px;
 }
 
+#controlsApp .container .columns {
+    margin-top: 10px;
+}
+
 .column {
     padding: 0;
 }
