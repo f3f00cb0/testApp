@@ -18,6 +18,9 @@
         <script src="/build/app.js" defer></script>
         See note below about the "defer" attribute -->
     {% endblock %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
     <style>
         body, html {
             height: fit-content;
@@ -32,6 +35,7 @@
     </style>
 </head>
 <body>
+{{ include('header.html.twig') }}
 <div class="container is-fluid">
     <section id="header">
         <div id="menu" class="text-right">
