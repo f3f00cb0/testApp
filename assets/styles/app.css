@@ -191,12 +191,12 @@ audio {
     height: 210px;
 }
 
-#controlsApp .container .columns:first-of-type {
-    margin-top: 10px;
+#controls {
+    margin-top: 0px;
 }
 
-#controls {
-    margin-top: 0;
+#controlsApp .container .columns:first-of-type {
+    margin-top: 10px;
 }
 
 .column {
