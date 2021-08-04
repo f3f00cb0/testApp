@@ -191,7 +191,7 @@ audio {
     height: 210px;
 }
 
-#controlsApp .container .columns {
+#controlsApp .container .columns:first-of-type {
     margin-top: 10px;
 }
 
