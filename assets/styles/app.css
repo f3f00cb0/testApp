@@ -199,6 +199,10 @@ audio {
     margin-top: 10px;
 }
 
+#controls {
+    margin-top: 0px;
+}
+
 .column {
     padding: 0;
 }
