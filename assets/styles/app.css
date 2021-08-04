@@ -195,7 +195,7 @@ audio {
     margin-top: 0px;
 }
 
-#controlsApp .container .columns:first-of-type {
+#controlsApp .container .columns:nth-child(0) {
     margin-top: 10px;
 }
 
