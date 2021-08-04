@@ -107,11 +107,11 @@ li {
 
 #playbutton {
     width: 100px;
-    height: 100px;
+    height: 78px;
 }
 
 #pausebutton {
-    height: 90px;
+    height: 68px;
     width: 90px;
 }
 
@@ -134,7 +134,7 @@ li {
 }
 
 #backwardbutton, #forwardbutton, #repeatbutton, #shufflebutton {
-    height: 60px;
+    height: 34px;
     width: 60px;
 }
 
