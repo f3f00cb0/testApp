@@ -104,6 +104,19 @@
     let repeatButtonTop = document.getElementById('repeatButtonTop');
     let repeatButtonBottom = document.getElementById('repeatButtonBottom');
 
+    let shuffle = false;
+    let shuffleButton = document.getElementById('shufflebutton');
+
+    function toggleShuffle(){
+        console.log('shuffle', shuffle);
+        if (shuffle) {
+            shuffleButton.style = 'fill: #cb9d06;';
+        } else {
+            shuffleButton.style = 'fill: green;';
+        }
+        shuffle = !shuffle;
+    }
+
     function toggleRepeat() {
         console.log('repeat', repeat);
         if (repeat) {
