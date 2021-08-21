@@ -106,13 +106,20 @@
 
     let shuffle = false;
     let shuffleButton = document.getElementById('shufflebutton');
+    let shuffleButton1 = document.getElementById('shufflebuttonp1');
+    let shuffleButton2 = document.getElementById('shufflebuttonp2');
+    let shuffleButton3 = document.getElementById('shufflebuttonp3');
 
     function toggleShuffle(){
         console.log('shuffle', shuffle);
         if (shuffle) {
-            shuffleButton.style = 'fill: #cb9d06;';
+            shuffleButton1.style = 'fill: #cb9d06;';
+            shuffleButton2.style = 'fill: #cb9d06;';
+            shuffleButton3.style = 'fill: #cb9d06;';
         } else {
-            shuffleButton.style = 'fill: green;';
+            shuffleButton1.style = 'fill: green;';
+            shuffleButton2.style = 'fill: green;';
+            shuffleButton3.style = 'fill: green;';
         }
         shuffle = !shuffle;
     }
