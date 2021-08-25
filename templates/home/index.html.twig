@@ -141,12 +141,6 @@
     function togglePlayPause() {
         if (audio.paused || audio.ended) {
             audio.play();
-            let playingNow = songs[HMSIP];
-            let songsInList = document.getElementsByClassName('cardplaying');
-            if (songsInList[0]) {
-                songsInList[0].classList.remove('cardplaying');
-            }
-            playingNow.classList.add('cardplaying');
             document.getElementById('playbutton').style.display = "none";
             document.getElementById('pausebutton').style.display = "block";
         } else {
@@ -244,6 +238,7 @@
 
     const timeline = document.getElementById('timeline');
     const playhead = document.getElementById("playhead");
+    playhead.style = 'background-color: #cb9d06;'
     let timelineWidth = timeline.offsetWidth - playhead.offsetWidth;
     audio.addEventListener("timeupdate", timeUpdate, false);
 
