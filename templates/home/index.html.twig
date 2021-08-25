@@ -95,6 +95,8 @@
     let MPIP = 0;
     source.src = musics[MPIP];
     playingNow.classList.add('cardplaying');
+    let playingNows = songs[HMSIP];
+    playingNows.classList.add('cardplaying');
     audio.load();
     actualyPlaying = musics[MPIP];
     if (actualyPlaying === undefined) {
