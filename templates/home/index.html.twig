@@ -106,6 +106,26 @@
     let repeatButtonTop = document.getElementById('repeatButtonTop');
     let repeatButtonBottom = document.getElementById('repeatButtonBottom');
 
+    let shuffle = false;
+    let shuffleButton = document.getElementById('shufflebutton');
+    let shuffleButton1 = document.getElementById('shufflebuttonp1');
+    let shuffleButton2 = document.getElementById('shufflebuttonp2');
+    let shuffleButton3 = document.getElementById('shufflebuttonp3');
+
+    function toggleShuffle(){
+        console.log('shuffle', shuffle);
+        if (shuffle) {
+            shuffleButton1.style = 'fill: #cb9d06;';
+            shuffleButton2.style = 'fill: #cb9d06;';
+            shuffleButton3.style = 'fill: #cb9d06;';
+        } else {
+            shuffleButton1.style = 'fill: green;';
+            shuffleButton2.style = 'fill: green;';
+            shuffleButton3.style = 'fill: green;';
+        }
+        shuffle = !shuffle;
+    }
+
     function toggleRepeat() {
         console.log('repeat', repeat);
         if (repeat) {
@@ -195,42 +215,59 @@
     }
 
     function forward() {
-        let nextSong = MPIP + 1;
-        if (nextSong > HMSIP) {
-            actualyPlaying = musics[0];
-            source.src = musics[0];
-
-            //SET CLASS PAYING TO SONG
-            let playingNow = songs[0];
-
-            //remove all playing class
-            let songsInList = document.getElementsByClassName('cardplaying');
-            if (songsInList[0]) {
-                songsInList[0].classList.remove('cardplaying');
-            }
-
-            playingNow.classList.add('cardplaying');
-
-            audio.load();
-            audio.play();
-            MPIP = 0;
-        } else {
+        if (shuffle) {
+            let rand = 0;
+            let nextSong = rand;
+            let playingNow = songs[nextSong];
             actualyPlaying = musics[nextSong];
             source.src = musics[nextSong];
-
-            //SET CLASS PAYING TO SONG
-            let playingNow = songs[nextSong];
-
             //remove all playing class
             let songsInList = document.getElementsByClassName('cardplaying');
             if (songsInList[0]) {
                 songsInList[0].classList.remove('cardplaying');
             }
             playingNow.classList.add('cardplaying');
-
             audio.load();
             audio.play();
-            MPIP = MPIP + 1;
+            MPIP = rand;
+        } else {
+            let nextSong = MPIP + 1;
+            if (nextSong > HMSIP) {
+                actualyPlaying = musics[0];
+                source.src = musics[0];
+
+                //SET CLASS PAYING TO SONG
+                let playingNow = songs[0];
+
+                //remove all playing class
+                let songsInList = document.getElementsByClassName('cardplaying');
+                if (songsInList[0]) {
+                    songsInList[0].classList.remove('cardplaying');
+                }
+
+                playingNow.classList.add('cardplaying');
+
+                audio.load();
+                audio.play();
+                MPIP = 0;
+            } else {
+                actualyPlaying = musics[nextSong];
+                source.src = musics[nextSong];
+
+                //SET CLASS PAYING TO SONG
+                let playingNow = songs[nextSong];
+
+                //remove all playing class
+                let songsInList = document.getElementsByClassName('cardplaying');
+                if (songsInList[0]) {
+                    songsInList[0].classList.remove('cardplaying');
+                }
+                playingNow.classList.add('cardplaying');
+
+                audio.load();
+                audio.play();
+                MPIP = MPIP + 1;
+            }
         }
         console.log('forward');
         playingNow.innerText = actualyPlaying.slice(0, -4);
@@ -340,12 +377,6 @@
             console.log(response.json());
         }));
     }, false);
-
-    function shuffle() {
-
-    }
-
-
 </script>
 </body>
 </html> 

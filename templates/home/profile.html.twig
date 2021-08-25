@@ -205,38 +205,56 @@
     }
 
     function forward() {
-        let nextSong = MPIP + 1;
-        if (nextSong > HMSIP) {
-            actualyPlaying = songsname[0];
-            source.src = musics[0];
-
-            //SET CLASS PAYING TO SONG
-            let playingNow = songs[0];
-
-            //remove all playing class
-            let songsInList = document.getElementsByClassName('cardplaying');
-            songsInList[0].classList.remove('cardplaying');
-            playingNow.classList.add('cardplaying');
-
-            audio.load();
-            audio.play();
-            MPIP = 0;
-        } else {
-            actualyPlaying = songsname[nextSong];
-            source.src = musics[nextSong];
-
-            //SET CLASS PAYING TO SONG
+        if (shuffle) {
+            let rand = 0;
+            let nextSong = rand;
             let playingNow = songs[nextSong];
-
+            actualyPlaying = musics[nextSong];
+            source.src = musics[nextSong];
             //remove all playing class
             let songsInList = document.getElementsByClassName('cardplaying');
-            songsInList[0].classList.remove('cardplaying');
+            if (songsInList[0]) {
+                songsInList[0].classList.remove('cardplaying');
+            }
             playingNow.classList.add('cardplaying');
-
             audio.load();
             audio.play();
-            MPIP = MPIP + 1;
+            MPIP = rand;
+        } else {
+            let nextSong = MPIP + 1;
+            if (nextSong > HMSIP) {
+                actualyPlaying = songsname[0];
+                source.src = musics[0];
+
+                //SET CLASS PAYING TO SONG
+                let playingNow = songs[0];
+
+                //remove all playing class
+                let songsInList = document.getElementsByClassName('cardplaying');
+                songsInList[0].classList.remove('cardplaying');
+                playingNow.classList.add('cardplaying');
+
+                audio.load();
+                audio.play();
+                MPIP = 0;
+            } else {
+                actualyPlaying = songsname[nextSong];
+                source.src = musics[nextSong];
+
+                //SET CLASS PAYING TO SONG
+                let playingNow = songs[nextSong];
+
+                //remove all playing class
+                let songsInList = document.getElementsByClassName('cardplaying');
+                songsInList[0].classList.remove('cardplaying');
+                playingNow.classList.add('cardplaying');
+
+                audio.load();
+                audio.play();
+                MPIP = MPIP + 1;
+            }
         }
+
         console.log('forward');
         playingNow.innerText = actualyPlaying;
     }
