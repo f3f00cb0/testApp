@@ -327,10 +327,12 @@
                 }
             }
             target.classList.add('cardplaying');
+            playingNow.classList.add('cardplaying');
         } else if (target.classList.contains('playbutton')){
             console.log(songsInList);
             if(songsInList.length === 0){
                 songs[0].classList.add('cardplaying');
+                playingNow.classList.add('cardplaying');
             }
         }
     }, false);
