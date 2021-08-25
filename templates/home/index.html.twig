@@ -335,14 +335,15 @@
                 playingNow.classList.add('cardplaying');
             }
         }
+        let fetchingLomepal = fetch('https://musicbrainz.org/ws/2/release?query=lomepal');
+        console.log(fetchingLomepal);
     }, false);
 
     function shuffle() {
 
     }
 
-    let fetch = fetch('https://musicbrainz.org/ws/2/release?query=lomepal');
-    console.log(fetch);
+
 </script>
 </body>
 </html> 
