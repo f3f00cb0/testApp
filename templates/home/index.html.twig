@@ -54,8 +54,10 @@
 <div id="controlsApp">
     <div class="container is-fluid">
         <div class="columns is-mobile controlscolumns">
-            <div class="column is-12">
-                <p id="playingnow"></p>
+            <div class="column is-3">
+                <p id="playingnow" class="cardplayingbar"></p>
+            </div>
+            <div class="column is-9">
                 <audio preload="auto" id="audio" controls>
                     <source id="audiosource" src="JACKBOYS, Sheck Wes - GANG GANG.mp3">
                 </audio>
@@ -66,8 +68,12 @@
                         </div>
                     </div>
                 </div>
-                {{ include('controls.html.twig') }}
-                {{ include('footer.html.twig') }}
+                 {{ include('controls.html.twig') }}
+                 {{ include('footer.html.twig') }}
+            </div>
+           
+            <div class="column is-12">
+                 
             </div>
         </div>
     </div>
@@ -185,7 +191,7 @@
             if (songsInList[0]) {
                 songsInList[0].classList.remove('cardplaying');
             }
-            playingNow.classList.add('cardplaying');
+            playingNow.classList.add('cardplayingbar');
 
             audio.load();
             audio.play();
@@ -204,7 +210,7 @@
                 songsInList[0].classList.remove('cardplaying');
             }
 
-            playingNow.classList.add('cardplaying');
+            playingNow.classList.add('cardplayingbar');
 
             audio.load();
             audio.play();
@@ -364,12 +370,12 @@
                 }
             }
             target.classList.add('cardplaying');
-            playingNow.classList.add('cardplaying');
+            playingNow.classList.add('cardplayingbar');
         } else if (target.classList.contains('playbutton')){
             console.log(songsInList);
             if(songsInList.length === 0){
                 songs[0].classList.add('cardplaying');
-                playingNow.classList.add('cardplaying');
+                playingNow.classList.add('cardplayingbar');
             }
         }
         let fetchingLomepal = fetch('https://musicbrainz.org/ws/2/release?query=lomepal');
