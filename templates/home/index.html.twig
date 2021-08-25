@@ -309,11 +309,12 @@
         const target = e.target || e.srcElement;
         console.log(target);
         let isMusic = false;
+        let songsInList = document.getElementsByClassName('cardplaying');
         if (target.dataset.music) {
             isMusic = target.dataset.music;
             target.classList.add('cardplaying');
             //remove all playing class
-            let songsInList = document.getElementsByClassName('cardplaying');
+
             if (target === songsInList[0]) {
                 if (songsInList[1]) {
                     if (songsInList[1].classList.contains('cardplaying')) {
@@ -327,7 +328,7 @@
             }
             target.classList.add('cardplaying');
         } else if (target.classList.contains('playbutton')){
-            console.log(target.classList);
+            console.log(songsInList);
         }
     }, false);
 
