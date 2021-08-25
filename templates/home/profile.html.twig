@@ -177,9 +177,10 @@
 
             //remove all playing class
             let songsInList = document.getElementsByClassName('cardplaying');
-            songsInList[0].classList.remove('cardplaying');
+            if (songsInList[0]){
+                songsInList[0].classList.remove('cardplaying');
+            }
             playingNow.classList.add('cardplaying');
-
             audio.load();
             audio.play();
             MPIP = HMSIP;
@@ -193,9 +194,10 @@
 
             //remove all playing class
             let songsInList = document.getElementsByClassName('cardplaying');
-            songsInList[0].classList.remove('cardplaying');
+            if (songsInList[0]){
+                songsInList[0].classList.remove('cardplaying');
+            }
             playingNow.classList.add('cardplaying');
-
             audio.load();
             audio.play();
             MPIP = MPIP - 1;
