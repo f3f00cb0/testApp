@@ -129,13 +129,12 @@
         if (repeat) {
             repeatButtonTop.style = 'fill: #cb9d06;';
             repeatButtonBottom.style = 'fill: #cb9d06;';
-            audio.loop = false;
         } else {
-            audio.loop = true;
             repeatButtonTop.style = 'fill: green;';
             repeatButtonBottom.style = 'fill: green;';
         }
         repeat = !repeat;
+        audio.loop = !audio.loop;
     }
 
     function readSong(song) {
