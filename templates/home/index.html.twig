@@ -162,8 +162,9 @@
             let playingNow = songs[HMSIP];
 
             //remove all playing class
+
             let songsInList = document.getElementsByClassName('cardplaying');
-            if (typeof(songsInList[0]) !== undefined){
+            if (songsInList[0]) {
                 songsInList[0].classList.remove('cardplaying');
             }
             playingNow.classList.add('cardplaying');
@@ -206,7 +207,7 @@
 
             //remove all playing class
             let songsInList = document.getElementsByClassName('cardplaying');
-            if (typeof(songsInList[0]) !== undefined){
+            if (songsInList[0]){
                 songsInList[0].classList.remove('cardplaying');
             }
 
@@ -224,7 +225,7 @@
 
             //remove all playing class
             let songsInList = document.getElementsByClassName('cardplaying');
-            if (typeof(songsInList[0]) !== undefined){
+            if (songsInList[0]){
                 songsInList[0].classList.remove('cardplaying');
             }
             playingNow.classList.add('cardplaying');
