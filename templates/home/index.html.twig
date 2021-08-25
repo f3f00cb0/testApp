@@ -94,9 +94,6 @@
     // Music Playing In Playlist
     let MPIP = 0;
     source.src = musics[MPIP];
-    playingNow.classList.add('cardplaying');
-    let playingNows = songs[HMSIP];
-    playingNows.classList.add('cardplaying');
     audio.load();
     actualyPlaying = musics[MPIP];
     if (actualyPlaying === undefined) {
@@ -144,13 +141,18 @@
     function togglePlayPause() {
         if (audio.paused || audio.ended) {
             audio.play();
+            let playingNow = songs[HMSIP];
+            let songsInList = document.getElementsByClassName('cardplaying');
+            if (songsInList[0]) {
+                songsInList[0].classList.remove('cardplaying');
+            }
+            playingNow.classList.add('cardplaying');
             document.getElementById('playbutton').style.display = "none";
             document.getElementById('pausebutton').style.display = "block";
         } else {
             audio.pause();
             document.getElementById('playbutton').style.display = "block";
             document.getElementById('pausebutton').style.display = "none";
-
         }
     }
 
@@ -165,7 +167,6 @@
             let playingNow = songs[HMSIP];
 
             //remove all playing class
-
             let songsInList = document.getElementsByClassName('cardplaying');
             if (songsInList[0]) {
                 songsInList[0].classList.remove('cardplaying');
