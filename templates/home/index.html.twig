@@ -163,11 +163,7 @@
 
             //remove all playing class
             let songsInList = document.getElementsByClassName('cardplaying');
-            if (songsInList[0] instanceof undefined){
-
-            } else {
-                songsInList[0].classList.remove('cardplaying');
-            }
+            songsInList[0].classList.remove('cardplaying');
             playingNow.classList.add('cardplaying');
 
             audio.load();
@@ -183,12 +179,7 @@
 
             //remove all playing class
             let songsInList = document.getElementsByClassName('cardplaying');
-            if (songsInList[0] instanceof undefined){
-
-            } else {
-                songsInList[0].classList.remove('cardplaying');
-            }
-
+            songsInList[0].classList.remove('cardplaying');
             playingNow.classList.add('cardplaying');
 
             audio.load();
