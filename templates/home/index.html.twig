@@ -336,7 +336,8 @@
             }
         }
         let fetchingLomepal = fetch('https://musicbrainz.org/ws/2/release?query=lomepal');
-        console.log(fetchingLomepal);
+        console.log(fetchingLomepal.then(response => response.json));
+        console.log(response.json);
     }, false);
 
     function shuffle() {
