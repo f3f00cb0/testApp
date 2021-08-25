@@ -163,9 +163,7 @@
 
             //remove all playing class
             let songsInList = document.getElementsByClassName('cardplaying');
-            if (songsInList[0] instanceof undefined){
-
-            } else {
+            if (typeof(songsInList[0]) !== undefined){
                 songsInList[0].classList.remove('cardplaying');
             }
             playingNow.classList.add('cardplaying');
@@ -183,9 +181,7 @@
 
             //remove all playing class
             let songsInList = document.getElementsByClassName('cardplaying');
-            if (songsInList[0] instanceof undefined){
-
-            } else {
+            if (typeof(songsInList[0]) !== undefined){
                 songsInList[0].classList.remove('cardplaying');
             }
 
@@ -210,9 +206,7 @@
 
             //remove all playing class
             let songsInList = document.getElementsByClassName('cardplaying');
-            if (songsInList[0] instanceof undefined){
-
-            } else {
+            if (typeof(songsInList[0]) !== undefined){
                 songsInList[0].classList.remove('cardplaying');
             }
 
@@ -230,12 +224,9 @@
 
             //remove all playing class
             let songsInList = document.getElementsByClassName('cardplaying');
-            if (songsInList[0] instanceof undefined){
-
-            } else {
+            if (typeof(songsInList[0]) !== undefined){
                 songsInList[0].classList.remove('cardplaying');
             }
-
             playingNow.classList.add('cardplaying');
 
             audio.load();
