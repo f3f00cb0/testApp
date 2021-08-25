@@ -34,8 +34,22 @@ a:hover {
     cursor: pointer;
 }
 
+.cardplayingbar {
+    font-size: initial;
+    background: black;
+    padding: 3px;
+    position: relative;
+    border-radius: 6px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    color: #ae895d;
+    width: 8rem;
+    height: 8rem;
+}
 
-.cardplaying::before {
+
+.cardplayingbar::before {
     content: "";
     width: 104%;
     height: 102%;
@@ -50,7 +64,7 @@ a:hover {
     animation: spin 2.5s linear infinite;
 }
 
-.cardplaying::after {
+.cardplayingbar::after {
     position: absolute;
     content: "";
     top: calc(var(--card-height) / 6);
@@ -180,6 +194,7 @@ audio {
 
 #playingnow {
     color: #cb9d06;
+    margin-top: 15%;
 }
 
 #controlsApp {
