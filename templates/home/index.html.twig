@@ -222,7 +222,8 @@
 
     function forward() {
         if (shuffle) {
-            let rand = 0;
+            let rand = Math.floor(Math.random() * (songs.length + 1));
+            console.log(rand);
             let nextSong = rand;
             let playingNow = songs[nextSong];
             actualyPlaying = musics[nextSong];
