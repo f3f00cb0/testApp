@@ -157,7 +157,9 @@ class HomeController extends AbstractController
         $formAlbum = $this->createForm(AlbumType::class, $album);
 
         if ($formAlbum->isSubmitted() && $formAlbum->isValid()) {
-
+            if ($content === "album"){
+                die;
+            }
         }
 
         return $this->render('home/ajout.html.twig', [
