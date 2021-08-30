@@ -162,6 +162,8 @@ class HomeController extends AbstractController
                 dump('eee');
                 die;
             }
+        } else {
+            die;
         }
 
         return $this->render('home/ajout.html.twig', [
