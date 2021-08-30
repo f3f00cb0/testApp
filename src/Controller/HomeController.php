@@ -157,7 +157,9 @@ class HomeController extends AbstractController
         $formAlbum = $this->createForm(AlbumType::class, $album);
 
         if ($formAlbum->isSubmitted() && $formAlbum->isValid()) {
+            dump('ee');
             if ($content === "album"){
+                dump('eee');
                 die;
             }
         }
