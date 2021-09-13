@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Titre index{% endblock %}
+
+{% block body %}
+    <h1>Titre index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Path</th>
+                <th>Album</th>
+                <th>Artiste</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for titre in titres %}
+            <tr>
+                <td>{{ titre.id }}</td>
+                <td>{{ titre.nom }}</td>
+                <td>{{ titre.path }}</td>
+                <td>{{ titre.album }}</td>
+                <td>{{ titre.artiste }}</td>
+                <td>
+                    <a href="{{ path('titre_show', {'id': titre.id}) }}">show</a>
+                    <a href="{{ path('titre_edit', {'id': titre.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('titre_new') }}">Create new</a>
+{% endblock %}
