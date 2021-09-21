@@ -31,11 +31,8 @@ class HomeController extends AbstractController
      */
     public function home(): Response
     {
-        $number = 15;
-
-        $message = "Hello";
-
-        $directory = '/home/ubuntu/App/public';
+        $number = 1;
+        $directory = '/home/f3f00cb0/testApp/public';
         $scanned_directory = array_diff(scandir($directory), array('..', '.'));
         $files = [];
         foreach ($scanned_directory as $temp_filename) {
@@ -156,17 +153,8 @@ class HomeController extends AbstractController
         $album = new Album();
         $formAlbum = $this->createForm(AlbumType::class, $album);
 
-        dump($formAlbum->isSubmitted());
-        if ($formAlbum->isSubmitted()) {
-            dump($formAlbum->isValid());
-        }
-
         if ($formAlbum->isSubmitted() && $formAlbum->isValid()) {
-            dump('ee');
-            if ($content === "album"){
-                dump('eee');
-                die;
-            }
+
         }
 
         return $this->render('home/ajout.html.twig', [
@@ -192,4 +180,30 @@ class HomeController extends AbstractController
             'user_songs' => $usersSongs
         ]);
     }
+
+    /**
+     * @Route("/film", name="watchmovie", methods={"GET", "POST"})
+     */
+    public function watchMovie(): Response
+    {
+        $message = 'e';
+        return $this->render('movie/index.html.twig', [
+            'message' => $message,
+        ]);
+    }
+
+
+    /**
+     * @Route ("/voirfilm/1", name="watchthismovie", methods={"GET", "POST"})
+     */
+    public function watchThisMovie(): Response
+    {
+        $film = 1;
+        $titre = "Fullmetal Alchemist Brotherhood";
+
+        return $this->render('movie/voir.html.twig', [
+            'titre' => $titre,
+        ]);
+    }
+
 }
